@@ -46,25 +46,37 @@
                    (char=? (string-ref trimmed-line 0) #\#))))
           lines))
 
+;; Función para buscar patrones usando regex con boundary checking para palabras literales
+(define (find-regex-matches text pattern)
+  (regexp-match* (pregexp pattern) text))
+
+;; Función para determinar el tipo de patrón y procesarlo
+(define (process-token-patterns text key patterns)
+  (cond
+    ;; Para tokens con listas de strings regex (KEYWORD, SOFT_KEYWORD)
+    [(list? patterns)
+     (let ([all-matches (apply append 
+                               (map (lambda (pattern) 
+                                      ;; Agregar word boundaries para matches exactos
+                                      (let ([word-pattern (string-append "\\b" pattern "\\b")])
+                                        (find-regex-matches text word-pattern))) 
+                                    patterns))])
+       all-matches)]
+    ;; Para tokens con patrones regex únicos (COMMENT, IDENTIFIER, etc.)
+    [(string? patterns)
+     (cond
+       [(equal? key 'COMMENT) (find-comment-matches text)]
+       [else (find-regex-matches text patterns)])]
+    ;; Caso por defecto
+    [else '()]))
+
 ;; Función para buscar instancias de expresiones regulares en el texto
 (define (find-matches-with-patterns text regex-tokens)
   (for/list ([token (in-list regex-tokens)])
     (let* ([key (car token)]
-           [patterns (cdr token)])
-      (cond
-        ;; Para KEYWORD y SOFT_KEYWORD (listas de strings)
-        [(and (list? patterns) (not (equal? key 'COMMENT)))
-         (let ([all-matches (apply append 
-                                   (map (lambda (pattern) 
-                                          (find-word-matches text pattern)) 
-                                        patterns))])
-           (list key all-matches))]
-        ;; Para COMMENT (patrón de regex)
-        [(equal? key 'COMMENT)
-         (let ([matches (find-comment-matches text)])
-           (list key matches))]
-        ;; Caso por defecto
-        [else (list key '())]))))
+           [patterns (cdr token)]
+           [matches (process-token-patterns text key patterns)])
+      (list key matches))))
 
 ;; Función principal
 (define (process-file filepath)
