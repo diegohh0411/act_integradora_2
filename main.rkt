@@ -2,14 +2,7 @@
 
 (require "regex-tokens.rkt")
 (require "nfa.rkt")
-(require racket/string)
-(require racket/port)
-
-;; Función para leer el contenido de un archivo
-(define (read-file filepath)
-  (call-with-input-file filepath
-    (lambda (in)
-      (port->string in))))
+(require "parse.rkt")
 
 ;; Función para verificar si un carácter es alfanumérico o guión bajo
 (define (is-word-char? char)
