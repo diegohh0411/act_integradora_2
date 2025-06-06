@@ -16,3 +16,4 @@
     'q0                               ;; Start state
     (set 'q4)))                       ;; Accept states
 
+(provide main-dfa)
