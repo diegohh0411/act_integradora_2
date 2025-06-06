@@ -36,4 +36,9 @@
              #f))])))  ;; Si no hay transición válida, devuelve falso.
 
 (provide dfa
+         dfa-alphabet
+         dfa-states
+         dfa-transitions
+        dfa-start-state
+          dfa-accept-states
          dfa-accepts?)

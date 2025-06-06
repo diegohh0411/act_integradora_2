@@ -1,7 +1,7 @@
 #lang racket
 
 (require "dfa.rkt"
-         "dfa-library.rkt")
+         "keywords-dfa.rkt")
 
 ;; Pure function to escape HTML special characters
 (define (escape-html text)
@@ -109,7 +109,7 @@
 
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
-  (list (cons main-dfa "keyword")))
+  (list (cons keywords-dfa "keyword")))
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)
