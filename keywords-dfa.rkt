@@ -60,4 +60,7 @@
 (define keywords-dfa
   (concatenate-dfas (list main-dfa def-dfa return-dfa if-dfa)))
 
+(displayln (dfa-accepts? main-dfa "main"))
+(displayln (dfa-accepts? keywords-dfa "main"))
+
 (provide keywords-dfa)

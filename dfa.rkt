@@ -39,6 +39,6 @@
          dfa-alphabet
          dfa-states
          dfa-transitions
-        dfa-start-state
-          dfa-accept-states
+         dfa-start-state
+         dfa-accept-states
          dfa-accepts?)
