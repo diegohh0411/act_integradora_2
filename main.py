@@ -1,6 +1,6 @@
 # hola este es un comentario
 
-def main():
+def main ():
   print("Hola, mundo!")
 
 

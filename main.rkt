@@ -1,6 +1,140 @@
 #lang racket
 
-(require "regex-tokens.rkt")
-(require "nfa.rkt")
-(require "parse.rkt")
+(require "dfa.rkt"
+         "dfa-library.rkt")
+
+;; Pure function to escape HTML special characters
+(define (escape-html text)
+  (foldr (lambda (replacement acc)
+           (string-replace acc (car replacement) (cdr replacement)))
+         text
+         '(("&" . "&amp;") ("<" . "&lt;") (">" . "&gt;") ("\"" . "&quot;"))))
+
+;; Pure function to split text into tokens while preserving whitespace
+(define (tokenize text)
+  (define (split-helper str acc current-token in-whitespace?)
+    (cond
+      [(string=? str "") 
+       (if (string=? current-token "")
+           (reverse acc)
+           (reverse (cons current-token acc)))]
+      [else
+       (let ([first-char (string-ref str 0)]
+             [rest-str (substring str 1)])
+         (cond
+           [(char-whitespace? first-char)
+            (if in-whitespace?
+                (split-helper rest-str acc (string-append current-token (string first-char)) #t)
+                (if (string=? current-token "")
+                    (split-helper rest-str acc (string first-char) #t)
+                    (split-helper rest-str (cons current-token acc) (string first-char) #t)))]
+           [else
+            (if in-whitespace?
+                (if (string=? current-token "")
+                    (split-helper rest-str acc (string first-char) #f)
+                    (split-helper rest-str (cons current-token acc) (string first-char) #f))
+                (split-helper rest-str acc (string-append current-token (string first-char)) #f))]))]))
+  
+  (split-helper text '() "" #f))
+
+;; Pure function to check if a token matches any DFA and return the CSS class
+(define (find-matching-class token dfa-class-pairs)
+  (define (check-dfas pairs)
+    (cond
+      [(null? pairs) #f]
+      [else
+       (let ([dfa (car (car pairs))]
+             [css-class (cdr (car pairs))])
+         (if (dfa-accepts? dfa token)
+             css-class
+             (check-dfas (cdr pairs))))]))
+  
+  (check-dfas dfa-class-pairs))
+
+;; Pure function to highlight tokens
+(define (highlight-tokens tokens dfa-class-pairs)
+  (map (lambda (token)
+         (let ([css-class (find-matching-class token dfa-class-pairs)])
+           (if css-class
+               (format "<span class=\"~a\">~a</span>" css-class token)
+               token)))
+       tokens))
+
+;; Pure function to highlight text using token-based approach
+(define (highlight-with-dfas text dfa-class-pairs)
+  (let* ([tokens (tokenize text)]
+         [highlighted-tokens (highlight-tokens tokens dfa-class-pairs)])
+    (string-join highlighted-tokens "")))
+
+;; Pure function to generate CSS styles
+(define (generate-css-styles)
+  (string-append
+   "        body { font-family: 'Courier New', monospace; background-color: #f5f5f5; margin: 20px; }\n"
+   "        .code-container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }\n"
+   "        .keyword { color: #000fff; font-weight: bold; }\n"
+   "        .number { color: #008000; font-weight: bold; }\n"
+   "        .string { color: #ff0000; }\n"
+   "        .comment { color: #808080; font-style: italic; }\n"
+   "        .identifier { color: #000080; }\n"
+   "        .operator { color: #ff8000; font-weight: bold; }\n"
+   "        pre { white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; }\n"
+   "        h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }\n"))
+
+;; Pure function to create HTML template
+(define (create-html-template highlighted-code)
+  (string-append
+   "<!DOCTYPE html>\n"
+   "<html lang=\"en\">\n"
+   "<head>\n"
+   "    <meta charset=\"UTF-8\">\n"
+   "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+   "    <title>Python Code Syntax Highlighter</title>\n"
+   "    <style>\n"
+   (generate-css-styles)
+   "    </style>\n"
+   "</head>\n"
+   "<body>\n"
+   "    <div class=\"code-container\">\n"
+   "        <h2>Python Code with DFA-based Syntax Highlighting</h2>\n"
+   "        <pre>" highlighted-code "</pre>\n"
+   "    </div>\n"
+   "</body>\n"
+   "</html>"))
+
+;; Pure function to process Python code to HTML
+(define (python-to-html python-code dfas-with-classes)
+  (let* ([escaped-code (escape-html python-code)]
+         [highlighted-code (highlight-with-dfas escaped-code dfas-with-classes)])
+    (create-html-template highlighted-code)))
+
+;; Pure function to get DFA-class pairs
+(define (get-dfa-class-pairs)
+  (list (cons main-dfa "keyword")))
+
+;; IO function to read file safely
+(define (safe-read-file filepath)
+  (if (file-exists? filepath)
+      (file->string filepath)
+      #f))
+
+;; IO function to write file safely
+(define (safe-write-file filepath content)
+  (with-output-to-file filepath
+    (lambda () (display content))
+    #:exists 'replace))
+
+;; Main IO function - the only impure function
+(define (main)
+  (let ([python-code (safe-read-file "./main.py")])
+    (if python-code
+        (let* ([dfa-pairs (get-dfa-class-pairs)]
+               [html-output (python-to-html python-code dfa-pairs)])
+          (safe-write-file "output.html" html-output)
+          (displayln "✓ HTML file generated successfully: output.html")
+          (displayln (format "✓ Processed ~a characters of Python code" 
+                           (string-length python-code))))
+        (displayln "✗ Error: ./main.py file not found!"))))
+
+;; Run the main function
+(main)
 

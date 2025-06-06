@@ -1,59 +1,39 @@
 #lang typed/racket
 
+;; Definición de la estructura `dfa` (Automata Finito Determinista).
+;; Contiene los estados, alfabeto, transiciones, estado inicial y estados de aceptación.
 (struct dfa (
-  [states : (Setof Symbol)] ; Changed from Listof to Setof for consistency
-  [alphabet : (Setof Char)] ; Changed from Listof to Setof for consistency
-  [transitions : (HashTable (Setof Symbol) (HashTable Char (Setof Symbol)))] ; Changed Integer to Symbol
-  [start-state : Symbol]
-  [accept-states : (Setof Symbol)] ; Changed from Listof to Setof for consistency
+  [states : (Setof Symbol)]  ;; Conjunto de estados del DFA.
+  [alphabet : (Setof Char)]  ;; Conjunto de caracteres que forman el alfabeto.
+  [transitions : (HashTable (Setof Symbol) (HashTable Char (Setof Symbol)))]  ;; Tabla de transiciones entre estados.
+  [start-state : Symbol]  ;; Estado inicial del DFA.
+  [accept-states : (Setof Symbol)]  ;; Conjunto de estados de aceptación.
   ) #:transparent)
 
+;; Declaración del tipo de la función `dfa-accepts?`.
+;; Esta función toma un DFA y una cadena de entrada, y devuelve un valor booleano.
+(: dfa-accepts? (dfa String -> Boolean))
 
-; Function to check if a DFA accepts a given string
-(: dfa-accepts (dfa String -> Boolean))
-(define (dfa-accepts dfa input-string)
-  (: loop (Symbol (Listof Symbol) -> Boolean)) ; Type annotation for the recursive function
-  (define (loop current-state remaining-input)
-    (cond 
-      ;; Si no hay más símbolos en la cadena, verificamos si el estado actual es de aceptación
+;; Definición de la función `dfa-accepts?`.
+;; Determina si una cadena de entrada es aceptada por el DFA.
+(define (dfa-accepts? dfa input-string)
+  ;; Función recursiva interna `loop` para procesar la cadena de entrada.
+  (let loop ([current-state (set (dfa-start-state dfa))]  ;; Estado actual del DFA (inicia en el estado inicial).
+             [remaining-input (string->list input-string)])  ;; Lista de caracteres restantes de la cadena de entrada.
+    (cond
+      ;; Caso base: si no quedan caracteres en la entrada.
       [(empty? remaining-input)
-       (member current-state (set->list (dfa-accept-states dfa)))]
-      ;; Si el símbolo actual no está en el alfabeto, rechazamos la cadena
-      [(not (member (first remaining-input) (set->list (dfa-alphabet dfa))))
-        #f]
-      ;; De lo contrario, buscamos la transición correspondiente
+       ;; Verifica si el estado actual intersecta con los estados de aceptación.
+       (not (set-empty? (set-intersect (dfa-accept-states dfa) current-state)))]  
+      ;; Caso recursivo: aún quedan caracteres por procesar.
       [else
-        (define next-state
-          (hash-ref (hash-ref (dfa-transitions dfa) current-state (make-hasheq))
-                    (first remaining-input)
-                    #f))
-        ;; Si no hay transición válida, rechazamos la cadena
-        (if (not next-state)
-            #f
-            ;; Continuamos con el siguiente estado y el resto de la cadena
-            (loop next-state (rest remaining-input)))]))
-  (loop (dfa-start-state dfa) (map string->symbol (string->list input-string))))
+       (let* ([current-char (first remaining-input)]  ;; Obtiene el primer carácter de la entrada.
+              [state-transitions (hash-ref (dfa-transitions dfa) current-state #f)]  ;; Obtiene las transiciones del estado actual.
+              [next-state (and state-transitions (hash-ref state-transitions current-char #f))])  ;; Determina el siguiente estado basado en el carácter actual.
+         ;; Si hay un estado válido al que transitar, continúa la recursión.
+         (if next-state
+             (loop next-state (rest remaining-input))  ;; Llama recursivamente con el siguiente estado y el resto de la entrada.
+             #f))])))  ;; Si no hay transición válida, devuelve falso.
 
-; (provide dfa dfa-accepts)
-
-
-(define my-dfa
-  (dfa
-    (set 'q0 'q1 'q2) ; States
-    (set 'a 'b)       ; Alphabet
-    (hasheq           ; Transitions
-      (set 'q0) (hasheq 'a (set 'q1) 'b (set 'q0))
-      (set 'q1) (hasheq 'a (set 'q2) 'b (set 'q0))
-      (set 'q2) (hasheq 'a (set 'q2) 'b (set 'q2)))
-    'q0               ; Start state
-    (set 'q2)))       ; Accept states
-
-;; Test the DFA with different strings
-(define test-string-1 "aab")
-(define test-string-2 "aaa")
-(define test-string-3 "bba")
-
-;; Check if the strings are accepted
-(printf "Does the DFA accept '~a'? ~a\n" test-string-1 (dfa-accepts my-dfa test-string-1))
-(printf "Does the DFA accept '~a'? ~a\n" test-string-2 (dfa-accepts my-dfa test-string-2))
-(printf "Does the DFA accept '~a'? ~a\n" test-string-3 (dfa-accepts my-dfa test-string-3))
+(provide dfa
+         dfa-accepts?)
