@@ -34,3 +34,6 @@
          (if next-state
              (loop next-state (rest remaining-input))  ;; Llama recursivamente con el siguiente estado y el resto de la entrada.
              #f))])))  ;; Si no hay transición válida, devuelve falso.
+
+(provide dfa
+         dfa-accepts?)
