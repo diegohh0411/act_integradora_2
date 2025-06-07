@@ -1,14 +1,12 @@
 #lang typed/racket
-
 (require "dfa.rkt")
 
-;; Define el DFA para identificar identificadores válidos en Python.
 (define identifiers-dfa
   (dfa
-    (set 'id-q0 'id-q1 'id-q2)  ;; Estados
+    (set 'id-q0 'id-q1 'id-q2)  
     (set #\_ #\a #\b #\c #\d #\e #\f #\g #\h #\i #\j #\k #\l #\m #\n #\o #\p #\q #\r #\s #\t #\u #\v #\w #\x #\y #\z
          #\A #\B #\C #\D #\E #\F #\G #\H #\I #\J #\K #\L #\M #\N #\O #\P #\Q #\R #\S #\T #\U #\V #\W #\X #\Y #\Z
-         #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9)  ;; Alfabeto
+         #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9)  
     (hash
       (set 'id-q0) (hash #\_ (set 'id-q1)
                           #\a (set 'id-q1) #\b (set 'id-q1) #\c (set 'id-q1) #\d (set 'id-q1) #\e (set 'id-q1) #\f (set 'id-q1)
@@ -32,10 +30,8 @@
                           #\W (set 'id-q1) #\X (set 'id-q1) #\Y (set 'id-q1) #\Z (set 'id-q1)
                           #\0 (set 'id-q1) #\1 (set 'id-q1) #\2 (set 'id-q1) #\3 (set 'id-q1) #\4 (set 'id-q1) #\5 (set 'id-q1)
                           #\6 (set 'id-q1) #\7 (set 'id-q1) #\8 (set 'id-q1) #\9 (set 'id-q1)))
-    'id-q0  ;; Estado inicial
-    (set 'id-q1)))  ;; Estado de aceptación
-
+    'id-q0  
+    (set 'id-q1)))  
 (define identifiers-dfa-list
   (list identifiers-dfa))
-
 (provide identifiers-dfa-list)

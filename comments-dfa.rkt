@@ -1,29 +1,23 @@
 #lang racket
-
 (require "dfa.rkt")
 (require "utils.rkt")
 (require "common-alphabet.rkt")
 
-;; Helper function to generate transitions for all alphabet characters (except #)
 (define (generate-comment-transitions)
   (define all-chars-list (set->list (set-remove (generate-common-alphabet) #\#)))
   (define transition-pairs 
     (map (lambda (char) (cons char (set 'comment-q1))) all-chars-list))
   (make-hash transition-pairs))
 
-;; Define the DFA for Python line comments (starting with #)
-;; This DFA recognizes any comment that starts with # and continues with any characters including accented ones
 (define comment-dfa
   (dfa
-    (set 'comment-q0 'comment-q1)  ;; States: initial and comment state
-    (generate-common-alphabet)  ;; Comprehensive alphabet including accented characters
+    (set 'comment-q0 'comment-q1)  
+    (generate-common-alphabet)  
     (hash
-      (set 'comment-q0) (hash #\# (set 'comment-q1))  ;; Transition from initial state on #
-      (set 'comment-q1) (generate-comment-transitions))  ;; From comment state, accept any character and stay in comment state
-    'comment-q0                           ;; Start state
-    (set 'comment-q1)))                   ;; Accept states (after reading #)
+      (set 'comment-q0) (hash #\# (set 'comment-q1))  
+      (set 'comment-q1) (generate-comment-transitions))  
+    'comment-q0                           
+    (set 'comment-q1)))                   
 
-;; List of all comment DFAs defined in this file
 (define comments-dfa-list (list comment-dfa))
-
 (provide comments-dfa-list)

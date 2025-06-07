@@ -1,5 +1,4 @@
 #lang typed/racket
-
 (define (generate-common-alphabet)
   (define basic-chars
     (set #\# #\space #\a #\b #\c #\d #\e #\f #\g #\h #\i #\j #\k #\l #\m #\n #\o #\p #\q #\r #\s #\t #\u #\v #\w #\x #\y #\z
@@ -7,10 +6,9 @@
          #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9
          #\! #\@ #\$ #\% #\^ #\& #\* #\( #\) #\- #\_ #\+ #\= #\[ #\] #\{ #\} #\| #\\ #\: #\; #\" #\' #\< #\> #\, #\. #\? #\/))
   
-  ;; Add common accented characters
+  
   (define accented-chars
     (set #\á #\é #\í #\ó #\ú #\ñ #\ü #\Á #\É #\Í #\Ó #\Ú #\Ñ #\Ü))
   
   (set-union basic-chars accented-chars))
-
 (provide generate-common-alphabet)

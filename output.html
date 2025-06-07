@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Code Syntax Highlighter</title>
+    <title>Actividad Integradora 2</title>
     <style>
         body { font-family: 'Courier New', monospace; background-color: #f5f5f5; margin: 20px; }
         .code-container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .keyword { color: #000fff; font-weight: bold; }
         .number { color: #008000; font-weight: bold; }
-        .comment { color: #808080; font-style: italic; }
+        .comment { color:rgb(60, 195, 202); font-style: italic; }
         .identifier { color: #F80080; }
         .operator { color: #ff8000; font-weight: bold; }
         pre { white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; }
@@ -25,6 +25,7 @@
             <li><span class="comment">comment</span>: comentarios en el código</li>
             <li><span class="number">number</span>: literales numéricos</li>
             <li><span class="identifier">identifier</span>: identificadores (nombres de variables, funciones, etc.)</li>
+            <li><span class="operator">operator</span>: operadores (como +, -, *, /, etc.)</li>
         </ul>
         <pre><span class="comment"># Este archivo contiene ejemplos de todas las clases léxicas de Python</span>
 
@@ -40,43 +41,43 @@
 <span class="keyword">class</span> <span class="identifier">MiClase</span>(<span class="identifier">object</span>):
     
     <span class="comment"># Variable de clase</span>
-    variable_clase <span class="operator">=</span> &amp;quot;valor_clase&amp;quot;
+    <span class="identifier">variable_clase</span> <span class="operator">=</span> "<span class="identifier">valor_clase</span>"
     
-    <span class="keyword">def</span> __init__(self, parametro: int <span class="operator">=</span> <span class="number">0</span>):
+    <span class="keyword">def</span> <span class="identifier">__init__</span>(<span class="identifier">self</span>, <span class="identifier">parametro</span>: <span class="identifier">int</span> <span class="operator">=</span> <span class="number">0</span>):
         <span class="comment"># Operador de asignación</span>
-        self.atributo <span class="operator">=</span> parametro
-        self._atributo_privado <span class="operator">=</span> <span class="keyword">None</span>
-        self.__atributo_muy_privado <span class="operator">=</span> &amp;quot;secreto&amp;quot;
+        <span class="identifier">self</span>.<span class="identifier">atributo</span> <span class="operator">=</span> <span class="identifier">parametro</span>
+        <span class="identifier">self</span>.<span class="identifier">_atributo_privado</span> <span class="operator">=</span> <span class="keyword">None</span>
+        <span class="identifier">self</span>.<span class="identifier">__atributo_muy_privado</span> <span class="operator">=</span> "<span class="identifier">secreto</span>"
     
     <span class="keyword">def</span> <span class="identifier">metodo_ejemplo</span>(<span class="identifier">self</span>, <span class="identifier">x</span>: <span class="identifier">float</span>, <span class="identifier">y</span>: <span class="identifier">float</span>) -> <span class="identifier">float</span>:
         <span class="comment"># Método que demuestra operadores aritméticos </span>
         <span class="comment"># Operadores aritméticos: +, -, *, /, //, %, **</span>
-        suma <span class="operator">=</span> x <span class="operator">+</span> y
-        resta <span class="operator">=</span> x <span class="operator">-</span> y
-        multiplicacion <span class="operator">=</span> x <span class="operator">*</span> y
-        division <span class="operator">=</span> x <span class="operator">/</span> y
-        division_entera <span class="operator">=</span> x <span class="operator">//</span> y
-        modulo <span class="operator">=</span> x <span class="operator">%</span> y
-        potencia <span class="operator">=</span> x <span class="operator">**</span> y
+        <span class="identifier">suma</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">+</span> <span class="identifier">y</span>
+        <span class="identifier">resta</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">-</span> <span class="identifier">y</span>
+        <span class="identifier">multiplicacion</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">*</span> <span class="identifier">y</span>
+        <span class="identifier">division</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">/</span> <span class="identifier">y</span>
+        <span class="identifier">division_entera</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">//</span> <span class="identifier">y</span>
+        <span class="identifier">modulo</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">%</span> <span class="identifier">y</span>
+        <span class="identifier">potencia</span> <span class="operator">=</span> <span class="identifier">x</span> <span class="operator">**</span> <span class="identifier">y</span>
         
         <span class="comment"># Operadores de asignación compuesta: +=, -=, *=, /=, //=, %=, **=</span>
-        suma <span class="operator">+=</span> <span class="number">10</span>
-        resta <span class="operator">-=</span> <span class="number">5</span>
-        multiplicacion <span class="operator">*=</span> <span class="number">2</span>
-        division <span class="operator">/=</span> <span class="number">3</span>
+        <span class="identifier">suma</span> <span class="operator">+=</span> <span class="number">10</span>
+        <span class="identifier">resta</span> <span class="operator">-=</span> <span class="number">5</span>
+        <span class="identifier">multiplicacion</span> <span class="operator">*=</span> <span class="number">2</span>
+        <span class="identifier">division</span> <span class="operator">/=</span> <span class="number">3</span>
         
         <span class="keyword">return</span> <span class="identifier">suma</span>
 
 <span class="comment"># Función con diferentes tipos de parámetros</span>
-<span class="keyword">def</span> funcion_compleja(*args, <span class="operator">**</span>kwargs):
-    &amp;quot;&amp;quot;&amp;quot;Función con argumentos variables&amp;quot;&amp;quot;&amp;quot;
-    <span class="comment"># Operadores de comparación: ==, !=, &amp;lt;, &amp;gt;, &amp;lt;=, &amp;gt;=, is, is not, in, not in</span>
-    <span class="keyword">if</span> len(args) &amp;gt; <span class="number">0</span> <span class="keyword">and</span> args[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
-        print(f&amp;quot;Primer argumento: {args[<span class="number">0</span>]}&amp;quot;)
+<span class="keyword">def</span> <span class="identifier">funcion_compleja</span>(*<span class="identifier">args</span>, <span class="operator">**</span><span class="identifier">kwargs</span>):
+    <span class="comment"># Función con argumentos variables</span>
+    <span class="comment"># Operadores de comparación: ==, !=, <, >, <=, >=, is, is not, in, not in</span>
+    <span class="keyword">if</span> <span class="identifier">len</span>(<span class="identifier">args</span>) <span class="operator">></span> <span class="number">0</span> <span class="keyword">and</span> <span class="identifier">args</span>[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Primer</span> <span class="identifier">argumento</span>: {<span class="identifier">args</span>[<span class="number">0</span>]}")
     
     <span class="comment"># Operadores lógicos: and, or, not</span>
-    <span class="keyword">if</span> args <span class="keyword">and</span> kwargs <span class="keyword">and</span> <span class="keyword">not</span> (len(args) <span class="operator">==</span> <span class="number">0</span> <span class="keyword">or</span> len(kwargs) <span class="operator">==</span> <span class="number">0</span>):
-        print(&amp;quot;Tenemos argumentos&amp;quot;)
+    <span class="keyword">if</span> <span class="identifier">args</span> <span class="keyword">and</span> <span class="identifier">kwargs</span> <span class="keyword">and</span> <span class="keyword">not</span> (<span class="identifier">len</span>(<span class="identifier">args</span>) <span class="operator">==</span> <span class="number">0</span> <span class="keyword">or</span> <span class="identifier">len</span>(<span class="identifier">kwargs</span>) <span class="operator">==</span> <span class="number">0</span>):
+        <span class="identifier">print</span>("<span class="identifier">Tenemos</span> <span class="identifier">argumentos</span>")
     
     <span class="comment"># Operadores de membresía: in, not in</span>
     <span class="keyword">if</span> '<span class="identifier">clave</span>' <span class="keyword">in</span> <span class="identifier">kwargs</span>:
@@ -87,67 +88,67 @@
         <span class="identifier">print</span>("<span class="identifier">Es</span> <span class="identifier">verdadero</span>")
 
 <span class="comment"># Función lambda</span>
-lambda_func <span class="operator">=</span> <span class="keyword">lambda</span> x, y: x <span class="operator">+</span> y <span class="keyword">if</span> x &amp;gt; <span class="number">0</span> <span class="keyword">else</span> y
+<span class="identifier">lambda_func</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="identifier">x</span>, <span class="identifier">y</span>: <span class="identifier">x</span> <span class="operator">+</span> <span class="identifier">y</span> <span class="keyword">if</span> <span class="identifier">x</span> <span class="operator">></span> <span class="number">0</span> <span class="keyword">else</span> <span class="identifier">y</span>
 
 <span class="comment"># Diferentes tipos de datos</span>
 <span class="comment"># Enteros (decimales, hexadecimales, octales, binarios)</span>
-entero_decimal <span class="operator">=</span> <span class="number">42</span>
-entero_hex <span class="operator">=</span> <span class="number">0xFF</span>
-entero_octal <span class="operator">=</span> <span class="number">0o777</span>
-entero_binario <span class="operator">=</span> <span class="number">0b1010</span>
+<span class="identifier">entero_decimal</span> <span class="operator">=</span> <span class="number">42</span>
+<span class="identifier">entero_hex</span> <span class="operator">=</span> <span class="number">0xFF</span>
+<span class="identifier">entero_octal</span> <span class="operator">=</span> <span class="number">0o777</span>
+<span class="identifier">entero_binario</span> <span class="operator">=</span> <span class="number">0b1010</span>
 
 <span class="comment"># Flotantes</span>
-flotante <span class="operator">=</span> <span class="number">3</span>.<span class="number">14159</span>
-flotante_cientifico <span class="operator">=</span> <span class="number">1</span>.5e<span class="operator">-</span><span class="number">10</span>
-flotante_negativo <span class="operator">=</span> <span class="operator">-</span><span class="number">2</span>.<span class="number">718</span>
+<span class="identifier">flotante</span> <span class="operator">=</span> <span class="number">3</span>.<span class="number">14159</span>
+<span class="identifier">flotante_cientifico</span> <span class="operator">=</span> <span class="number">1</span>.5e<span class="operator">-</span><span class="number">10</span>
+<span class="identifier">flotante_negativo</span> <span class="operator">=</span> <span class="operator">-</span><span class="number">2</span>.<span class="number">718</span>
 
 <span class="comment"># Números complejos</span>
-complejo <span class="operator">=</span> <span class="number">3</span> <span class="operator">+</span> <span class="number">4j</span>
+<span class="identifier">complejo</span> <span class="operator">=</span> <span class="number">3</span> <span class="operator">+</span> <span class="number">4j</span>
 
 <span class="comment"># Strings con diferentes tipos de comillas</span>
-string_simple <span class="operator">=</span> 'cadena simple'
-string_doble <span class="operator">=</span> &amp;quot;cadena doble&amp;quot;
-string_triple <span class="operator">=</span> '''cadena
-de múltiples
+<span class="identifier">string_simple</span> <span class="operator">=</span> '<span class="identifier">cadena</span> <span class="identifier">simple</span>'
+<span class="identifier">string_doble</span> <span class="operator">=</span> "<span class="identifier">cadena</span> <span class="identifier">doble</span>"
+<span class="identifier">string_triple</span> <span class="operator">=</span> '''<span class="identifier">cadena</span>
+<span class="identifier">de</span> múltiples
 líneas'''
-string_raw <span class="operator">=</span> r&amp;quot;cadena raw con \n caracteres especiales&amp;quot;
-string_formatted <span class="operator">=</span> f&amp;quot;String formateado: {entero_decimal}&amp;quot;
-string_unicode <span class="operator">=</span> &amp;quot;cadena con unicode: ñáéíóú&amp;quot;
+<span class="identifier">string_raw</span> <span class="operator">=</span> <span class="identifier">r</span>"<span class="identifier">cadena</span> <span class="identifier">raw</span> <span class="identifier">con</span> \<span class="identifier">n</span> <span class="identifier">caracteres</span> <span class="identifier">especiales</span>"
+<span class="identifier">string_formatted</span> <span class="operator">=</span> <span class="identifier">f</span>"<span class="identifier">String</span> <span class="identifier">formateado</span>: {<span class="identifier">entero_decimal</span>}"
+<span class="identifier">string_unicode</span> <span class="operator">=</span> "<span class="identifier">cadena</span> <span class="identifier">con</span> <span class="identifier">unicode</span>: ñáéíóú"
 
 <span class="comment"># Listas con diferentes elementos</span>
-lista <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, &amp;quot;texto&amp;quot;, <span class="keyword">True</span>, <span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">2</span>]]
-lista_comprension <span class="operator">=</span> [x<span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span>]
+<span class="identifier">lista</span> <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, "<span class="identifier">texto</span>", <span class="keyword">True</span>, <span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">2</span>]]
+<span class="identifier">lista_comprension</span> <span class="operator">=</span> [<span class="identifier">x</span><span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> <span class="identifier">x</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">10</span>) <span class="keyword">if</span> <span class="identifier">x</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span>]
 
 <span class="comment"># Tuplas</span>
-tupla <span class="operator">=</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
-tupla_un_elemento <span class="operator">=</span> (<span class="number">42</span>,)
+<span class="identifier">tupla</span> <span class="operator">=</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
+<span class="identifier">tupla_un_elemento</span> <span class="operator">=</span> (<span class="number">42</span>,)
 
 <span class="comment"># Diccionarios</span>
-diccionario <span class="operator">=</span> {
-    &amp;quot;clave1&amp;quot;: &amp;quot;valor1&amp;quot;,
-    &amp;quot;clave2&amp;quot;: <span class="number">42</span>,
-    'clave3': [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],
-    <span class="number">42</span>: &amp;quot;clave numérica&amp;quot;
+<span class="identifier">diccionario</span> <span class="operator">=</span> {
+    "<span class="identifier">clave1</span>": "<span class="identifier">valor1</span>",
+    "<span class="identifier">clave2</span>": <span class="number">42</span>,
+    '<span class="identifier">clave3</span>': [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],
+    <span class="number">42</span>: "<span class="identifier">clave</span> numérica"
 }
-dict_comprension <span class="operator">=</span> {k: v<span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(<span class="number">5</span>))}
+<span class="identifier">dict_comprension</span> <span class="operator">=</span> {<span class="identifier">k</span>: <span class="identifier">v</span><span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> <span class="identifier">k</span>, <span class="identifier">v</span> <span class="keyword">in</span> <span class="identifier">enumerate</span>(<span class="identifier">range</span>(<span class="number">5</span>))}
 
 <span class="comment"># Conjuntos</span>
-conjunto <span class="operator">=</span> {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
-conjunto_vacio <span class="operator">=</span> set()
+<span class="identifier">conjunto</span> <span class="operator">=</span> {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
+<span class="identifier">conjunto_vacio</span> <span class="operator">=</span> <span class="identifier">set</span>()
 
-# Operadores bit a bit: &amp;, |, ^, ~, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;
-resultado_and <span class="operator">=</span> <span class="number">5</span> &amp; <span class="number">3</span>
-resultado_or <span class="operator">=</span> <span class="number">5</span> | <span class="number">3</span>
-resultado_xor <span class="operator">=</span> <span class="number">5</span> ^ <span class="number">3</span>
-resultado_not <span class="operator">=</span> ~<span class="number">5</span>
-desplazamiento_izq <span class="operator">=</span> <span class="number">5</span> &amp;lt;&amp;lt; <span class="number">2</span>
-desplazamiento_der <span class="operator">=</span> <span class="number">20</span> &amp;gt;&amp;gt; <span class="number">2</span>
+# Operadores bit a bit: &, |, ^, ~, <<, >>
+<span class="identifier">resultado_and</span> <span class="operator">=</span> <span class="number">5</span> & <span class="number">3</span>
+<span class="identifier">resultado_or</span> <span class="operator">=</span> <span class="number">5</span> | <span class="number">3</span>
+<span class="identifier">resultado_xor</span> <span class="operator">=</span> <span class="number">5</span> ^ <span class="number">3</span>
+<span class="identifier">resultado_not</span> <span class="operator">=</span> ~<span class="number">5</span>
+<span class="identifier">desplazamiento_izq</span> <span class="operator">=</span> <span class="number">5</span> << <span class="number">2</span>
+<span class="identifier">desplazamiento_der</span> <span class="operator">=</span> <span class="number">20</span> >> <span class="number">2</span>
 
 <span class="comment"># Estructura de control: if-elif-else</span>
 <span class="keyword">def</span> <span class="identifier">control_flujo</span>(<span class="identifier">valor</span>):
-    <span class="keyword">if</span> <span class="identifier">valor</span> > <span class="number">10</span>:
+    <span class="keyword">if</span> <span class="identifier">valor</span> <span class="operator">></span> <span class="number">10</span>:
         <span class="identifier">print</span>("<span class="identifier">Mayor</span> <span class="identifier">que</span> <span class="number">10</span>")
-    <span class="keyword">elif</span> <span class="identifier">valor</span> > <span class="number">5</span>:
+    <span class="keyword">elif</span> <span class="identifier">valor</span> <span class="operator">></span> <span class="number">5</span>:
         <span class="identifier">print</span>("<span class="identifier">Entre</span> <span class="number">5</span> <span class="identifier">y</span> <span class="number">10</span>")
     <span class="keyword">else</span>:
         <span class="identifier">print</span>("<span class="identifier">Menor</span> <span class="identifier">o</span> <span class="identifier">igual</span> <span class="identifier">a</span> <span class="number">5</span>")
@@ -155,27 +156,27 @@ desplazamiento_der <span class="operator">=</span> <span class="number">20</span
 <span class="comment"># Bucles: for y while</span>
 <span class="keyword">def</span> <span class="identifier">bucles_ejemplo</span>():
     <span class="comment"># Bucle for</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):
-        <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">5</span>:
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">10</span>):
+        <span class="keyword">if</span> <span class="identifier">i</span> <span class="operator">==</span> <span class="number">5</span>:
             <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
-        <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">8</span>:
+        <span class="keyword">if</span> <span class="identifier">i</span> <span class="operator">==</span> <span class="number">8</span>:
             <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
         <span class="identifier">print</span>(<span class="identifier">i</span>)
     
     <span class="comment"># Bucle while</span>
-    contador <span class="operator">=</span> <span class="number">0</span>
-    <span class="keyword">while</span> contador &amp;lt; <span class="number">5</span>:
-        print(f&amp;quot;Contador: {contador}&amp;quot;)
-        contador <span class="operator">+=</span> <span class="number">1</span>
+    <span class="identifier">contador</span> <span class="operator">=</span> <span class="number">0</span>
+    <span class="keyword">while</span> <span class="identifier">contador</span> <span class="operator"><</span> <span class="number">5</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Contador</span>: {<span class="identifier">contador</span>}")
+        <span class="identifier">contador</span> <span class="operator">+=</span> <span class="number">1</span>
 
 <span class="comment"># Manejo de excepciones: try-except-finally</span>
 <span class="keyword">def</span> <span class="identifier">manejo_excepciones</span>():
     <span class="keyword">try</span>:
-        resultado <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">0</span>
-    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
-        print(f&amp;quot;Error: {e}&amp;quot;)
-    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
-        print(f&amp;quot;Error general: {e}&amp;quot;)
+        <span class="identifier">resultado</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">0</span>
+    <span class="keyword">except</span> <span class="identifier">ZeroDivisionError</span> <span class="keyword">as</span> <span class="identifier">e</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Error</span>: {<span class="identifier">e</span>}")
+    <span class="keyword">except</span> <span class="identifier">Exception</span> <span class="keyword">as</span> <span class="identifier">e</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Error</span> <span class="identifier">general</span>: {<span class="identifier">e</span>}")
     <span class="keyword">else</span>:
         <span class="identifier">print</span>("<span class="identifier">No</span> <span class="identifier">hubo</span> <span class="identifier">errores</span>")
     <span class="keyword">finally</span>:
@@ -187,40 +188,40 @@ desplazamiento_der <span class="operator">=</span> <span class="number">20</span
         <span class="identifier">archivo</span>.<span class="identifier">write</span>("<span class="identifier">Contenido</span> <span class="keyword">del</span> <span class="identifier">archivo</span>")
 
 <span class="comment"># Generadores y yield</span>
-<span class="keyword">def</span> generador():
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
-        <span class="keyword">yield</span> i<span class="operator">**</span><span class="number">2</span>
+<span class="keyword">def</span> <span class="identifier">generador</span>():
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">5</span>):
+        <span class="keyword">yield</span> <span class="identifier">i</span><span class="operator">**</span><span class="number">2</span>
 
 <span class="comment"># Decoradores</span>
-<span class="keyword">def</span> decorador(func):
-    <span class="keyword">def</span> wrapper(*args, <span class="operator">**</span>kwargs):
-        print(&amp;quot;Antes de la función&amp;quot;)
-        resultado <span class="operator">=</span> func(*args, <span class="operator">**</span>kwargs)
-        print(&amp;quot;Después de la función&amp;quot;)
-        <span class="keyword">return</span> resultado
-    <span class="keyword">return</span> wrapper
+<span class="keyword">def</span> <span class="identifier">decorador</span>(<span class="identifier">func</span>):
+    <span class="keyword">def</span> <span class="identifier">wrapper</span>(*<span class="identifier">args</span>, <span class="operator">**</span><span class="identifier">kwargs</span>):
+        <span class="identifier">print</span>("<span class="identifier">Antes</span> <span class="identifier">de</span> <span class="identifier">la</span> función")
+        <span class="identifier">resultado</span> <span class="operator">=</span> <span class="identifier">func</span>(*<span class="identifier">args</span>, <span class="operator">**</span><span class="identifier">kwargs</span>)
+        <span class="identifier">print</span>("Después <span class="identifier">de</span> <span class="identifier">la</span> función")
+        <span class="keyword">return</span> <span class="identifier">resultado</span>
+    <span class="keyword">return</span> <span class="identifier">wrapper</span>
 
 @<span class="identifier">decorador</span>
 <span class="keyword">def</span> <span class="identifier">funcion_decorada</span>():
     <span class="identifier">print</span>("Función <span class="identifier">decorada</span>")
 
 <span class="comment"># Variables globales y nonlocal</span>
-variable_global <span class="operator">=</span> &amp;quot;<span class="keyword">global</span>&amp;quot;
+<span class="identifier">variable_global</span> <span class="operator">=</span> "<span class="keyword">global</span>"
 
-<span class="keyword">def</span> funcion_externa():
-    variable_local <span class="operator">=</span> &amp;quot;local&amp;quot;
+<span class="keyword">def</span> <span class="identifier">funcion_externa</span>():
+    <span class="identifier">variable_local</span> <span class="operator">=</span> "<span class="identifier">local</span>"
     
-    <span class="keyword">def</span> funcion_interna():
-        <span class="keyword">nonlocal</span> variable_local
-        <span class="keyword">global</span> variable_global
-        variable_local <span class="operator">=</span> &amp;quot;modificada&amp;quot;
-        variable_global <span class="operator">=</span> &amp;quot;modificada globalmente&amp;quot;
+    <span class="keyword">def</span> <span class="identifier">funcion_interna</span>():
+        <span class="keyword">nonlocal</span> <span class="identifier">variable_local</span>
+        <span class="keyword">global</span> <span class="identifier">variable_global</span>
+        <span class="identifier">variable_local</span> <span class="operator">=</span> "<span class="identifier">modificada</span>"
+        <span class="identifier">variable_global</span> <span class="operator">=</span> "<span class="identifier">modificada</span> <span class="identifier">globalmente</span>"
     
     <span class="identifier">funcion_interna</span>()
     <span class="keyword">return</span> <span class="identifier">variable_local</span>
 
 <span class="comment"># Expresiones regulares y caracteres especiales</span>
-patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+@[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+\.[a<span class="operator">-</span>zA<span class="operator">-</span>Z]{<span class="number">2</span>,}&amp;quot;
+<span class="identifier">patron_regex</span> <span class="operator">=</span> <span class="identifier">r</span>"[<span class="identifier">a</span><span class="operator">-</span><span class="identifier">zA</span><span class="operator">-</span><span class="identifier">Z0</span><span class="operator">-</span><span class="number">9</span>]+@[<span class="identifier">a</span><span class="operator">-</span><span class="identifier">zA</span><span class="operator">-</span><span class="identifier">Z0</span><span class="operator">-</span><span class="number">9</span>]+\.[<span class="identifier">a</span><span class="operator">-</span><span class="identifier">zA</span><span class="operator">-</span><span class="identifier">Z</span>]{<span class="number">2</span>,}"
 
 <span class="comment"># Función principal</span>
 <span class="keyword">def</span> <span class="keyword">main</span>():
@@ -228,50 +229,50 @@ patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator"
     <span class="identifier">print</span>("=== Demostración <span class="identifier">de</span> <span class="identifier">clases</span> léxicas ===")
     
     <span class="comment"># Instanciar clase</span>
-    objeto <span class="operator">=</span> MiClase(<span class="number">100</span>)
-    resultado <span class="operator">=</span> objeto.metodo_ejemplo(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
+    <span class="identifier">objeto</span> <span class="operator">=</span> <span class="identifier">MiClase</span>(<span class="number">100</span>)
+    <span class="identifier">resultado</span> <span class="operator">=</span> <span class="identifier">objeto</span>.<span class="identifier">metodo_ejemplo</span>(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
     
     <span class="comment"># Llamar funciones</span>
-    funcion_compleja(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, clave=&amp;quot;valor&amp;quot;, otra_clave<span class="operator">=</span><span class="number">42</span>)
-    control_flujo(<span class="number">15</span>)
-    bucles_ejemplo()
-    manejo_excepciones()
+    <span class="identifier">funcion_compleja</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="identifier">clave</span><span class="operator">=</span>"<span class="identifier">valor</span>", <span class="identifier">otra_clave</span><span class="operator">=</span><span class="number">42</span>)
+    <span class="identifier">control_flujo</span>(<span class="number">15</span>)
+    <span class="identifier">bucles_ejemplo</span>()
+    <span class="identifier">manejo_excepciones</span>()
     
     <span class="comment"># Usar generador</span>
-    gen <span class="operator">=</span> generador()
-    <span class="keyword">for</span> valor <span class="keyword">in</span> gen:
-        print(f&amp;quot;Valor generado: {valor}&amp;quot;)
+    <span class="identifier">gen</span> <span class="operator">=</span> <span class="identifier">generador</span>()
+    <span class="keyword">for</span> <span class="identifier">valor</span> <span class="keyword">in</span> <span class="identifier">gen</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Valor</span> <span class="identifier">generado</span>: {<span class="identifier">valor</span>}")
     
     <span class="comment"># Función decorada</span>
     <span class="identifier">funcion_decorada</span>()
     
     <span class="comment"># Función externa</span>
-    resultado_local <span class="operator">=</span> funcion_externa()
-    print(f&amp;quot;Resultado local: {resultado_local}&amp;quot;)
+    <span class="identifier">resultado_local</span> <span class="operator">=</span> <span class="identifier">funcion_externa</span>()
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="identifier">local</span>: {<span class="identifier">resultado_local</span>}")
     
     <span class="comment"># Operador ternario</span>
-    resultado_ternario <span class="operator">=</span> &amp;quot;positivo&amp;quot; <span class="keyword">if</span> resultado &amp;gt; <span class="number">0</span> <span class="keyword">else</span> &amp;quot;negativo&amp;quot;
-    print(f&amp;quot;Resultado ternario: {resultado_ternario}&amp;quot;)
+    <span class="identifier">resultado_ternario</span> <span class="operator">=</span> "<span class="identifier">positivo</span>" <span class="keyword">if</span> <span class="identifier">resultado</span> <span class="operator">></span> <span class="number">0</span> <span class="keyword">else</span> "<span class="identifier">negativo</span>"
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="identifier">ternario</span>: {<span class="identifier">resultado_ternario</span>}")
     
     <span class="comment"># Función lambda</span>
-    resultado_lambda <span class="operator">=</span> lambda_func(<span class="number">5</span>, <span class="number">3</span>)
-    print(f&amp;quot;Resultado <span class="keyword">lambda</span>: {resultado_lambda}&amp;quot;)
+    <span class="identifier">resultado_lambda</span> <span class="operator">=</span> <span class="identifier">lambda_func</span>(<span class="number">5</span>, <span class="number">3</span>)
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="keyword">lambda</span>: {<span class="identifier">resultado_lambda</span>}")
     
     <span class="comment"># Unpacking</span>
-    a, b, <span class="operator">*</span>resto <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
-    print(f&amp;quot;a={a}, b={b}, resto={resto}&amp;quot;)
+    <span class="identifier">a</span>, <span class="identifier">b</span>, <span class="operator">*</span><span class="identifier">resto</span> <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">a</span>={<span class="identifier">a</span>}, <span class="identifier">b</span>={<span class="identifier">b</span>}, <span class="identifier">resto</span>={<span class="identifier">resto</span>}")
     
     <span class="comment"># Walrus operator (Python 3.8+)</span>
-    <span class="keyword">if</span> (<span class="identifier">n</span> := <span class="identifier">len</span>(<span class="identifier">lista</span>)) > <span class="number">5</span>:
+    <span class="keyword">if</span> (<span class="identifier">n</span> := <span class="identifier">len</span>(<span class="identifier">lista</span>)) <span class="operator">></span> <span class="number">5</span>:
         <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Lista</span> <span class="identifier">tiene</span> {<span class="identifier">n</span>} <span class="identifier">elementos</span>")
     
     <span class="keyword">return</span> <span class="number">0</span>
 
 <span class="comment"># Ejecutar si es el archivo principal</span>
-<span class="keyword">if</span> __name__ <span class="operator">==</span> &amp;quot;__main__&amp;quot;:
+<span class="keyword">if</span> <span class="identifier">__name__</span> <span class="operator">==</span> "<span class="identifier">__main__</span>":
     <span class="comment"># Comentario de línea final</span>
-    exit_code <span class="operator">=</span> <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
-    exit(exit_code)     <span class="comment"># Salida del programa</span></pre>
+    <span class="identifier">exit_code</span> <span class="operator">=</span> <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
+    <span class="identifier">exit</span>(<span class="identifier">exit_code</span>)     <span class="comment"># Salida del programa</span></pre>
     </div>
 </body>
 </html>
