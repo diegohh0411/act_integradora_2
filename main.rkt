@@ -4,6 +4,7 @@
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
          "numbers-dfa.rkt"
+         "identifiers-dfa.rkt"
          )
 
 ;; Pure function to split text into tokens while preserving whitespace and separating symbols
@@ -138,7 +139,7 @@
    "        .keyword { color: #000fff; font-weight: bold; }\n"
    "        .number { color: #008000; font-weight: bold; }\n"
    "        .comment { color: #808080; font-style: italic; }\n"
-   "        .identifier { color: #000080; }\n"
+   "        .identifier { color: #F80080; }\n"
    "        .operator { color: #ff8000; font-weight: bold; }\n"
    "        pre { white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; }\n"
    "        h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }\n"))
@@ -158,7 +159,14 @@
    "</head>\n"
    "<body>\n"
    "    <div class=\"code-container\">\n"
-   "        <h2>Python Code with DFA-based Syntax Highlighting</h2>\n"
+   "        <h2>Actividad Integradora 2 de Diego Hernández y Lucio Collins</h2>\n"
+   "        <p>Los colores de resaltado corresponden a:</p>\n"
+   "        <ul>\n"
+   "            <li><span class=\"keyword\">keyword</span>: palabras reservadas de Python</li>\n"
+   "            <li><span class=\"comment\">comment</span>: comentarios en el código</li>\n"
+   "            <li><span class=\"number\">number</span>: literales numéricos</li>\n"
+   "            <li><span class=\"identifier\">identifier</span>: identificadores (nombres de variables, funciones, etc.)</li>\n"
+   "        </ul>\n"
    "        <pre>" highlighted-code "</pre>\n"
    "    </div>\n"
    "</body>\n"
@@ -174,6 +182,7 @@
   (list (cons keywords-dfa-list "keyword")
         (cons comments-dfa-list "comment")
         (cons numbers-dfa-list "number")
+        (cons identifiers-dfa-list "identifier")
         ))
 
 ;; IO function to read file safely

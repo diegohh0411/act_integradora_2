@@ -9,9 +9,8 @@
         .code-container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .keyword { color: #000fff; font-weight: bold; }
         .number { color: #008000; font-weight: bold; }
-        .string { color: #ff0000; }
         .comment { color: #808080; font-style: italic; }
-        .identifier { color: #000080; }
+        .identifier { color: #F80080; }
         .operator { color: #ff8000; font-weight: bold; }
         pre { white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; }
         h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -19,258 +18,260 @@
 </head>
 <body>
     <div class="code-container">
-        <h2>Python Code with DFA-based Syntax Highlighting</h2>
+        <h2>Actividad Integradora 2 de Diego Hernández y Lucio Collins</h2>
+        <p>Los colores de resaltado corresponden a:</p>
+        <ul>
+            <li><span class="keyword">keyword</span>: palabras reservadas de Python</li>
+            <li><span class="comment">comment</span>: comentarios en el código</li>
+            <li><span class="number">number</span>: literales numéricos</li>
+            <li><span class="identifier">identifier</span>: identificadores (nombres de variables, funciones, etc.)</li>
+        </ul>
         <pre><span class="comment"># Este archivo contiene ejemplos de todas las clases léxicas de Python</span>
-"""
-Comentario de múltiples líneas
-que demuestra las docstrings
-"""
 
 <span class="comment"># Importaciones con diferentes variantes</span>
-<span class="keyword">import</span> math
-<span class="keyword">import</span> os <span class="keyword">as</span> sistema
-<span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict, Counter
-<span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict, Optional, Union
+<span class="keyword">import</span> <span class="identifier">math</span>
+<span class="keyword">import</span> <span class="identifier">os</span> <span class="keyword">as</span> <span class="identifier">sistema</span>
+<span class="keyword">from</span> <span class="identifier">collections</span> <span class="keyword">import</span> <span class="identifier">defaultdict</span>, <span class="identifier">Counter</span>
+<span class="keyword">from</span> <span class="identifier">typing</span> <span class="keyword">import</span> <span class="identifier">List</span>, <span class="identifier">Dict</span>, <span class="identifier">Optional</span>, <span class="identifier">Union</span>
 
 <span class="comment"># Keywords: def, class, if, elif, else, for, while, try, except, finally, with, as, import, from, return, yield, break, continue, pass, global, nonlocal, lambda, and, or, not, in, is, True, False, None</span>
 
 <span class="comment"># Definición de clase con herencia</span>
-<span class="keyword">class</span> MiClase(object):
-    """Docstring de la clase"""
+<span class="keyword">class</span> <span class="identifier">MiClase</span>(<span class="identifier">object</span>):
     
     <span class="comment"># Variable de clase</span>
-    variable_clase = "valor_clase"
+    <span class="identifier">variable_clase</span> = "<span class="identifier">valor_clase</span>"
     
-    <span class="keyword">def</span> __init__(self, parametro: int = <span class="number">0</span>):
+    <span class="keyword">def</span> <span class="identifier">__init__</span>(<span class="identifier">self</span>, <span class="identifier">parametro</span>: <span class="identifier">int</span> = <span class="number">0</span>):
         <span class="comment"># Operador de asignación</span>
-        self.atributo = parametro
-        self._atributo_privado = <span class="keyword">None</span>
-        self.__atributo_muy_privado = "secreto"
+        <span class="identifier">self</span>.<span class="identifier">atributo</span> = <span class="identifier">parametro</span>
+        <span class="identifier">self</span>.<span class="identifier">_atributo_privado</span> = <span class="keyword">None</span>
+        <span class="identifier">self</span>.<span class="identifier">__atributo_muy_privado</span> = "<span class="identifier">secreto</span>"
     
-    <span class="keyword">def</span> metodo_ejemplo(self, x: float, y: float) -> float:
-        """Método que demuestra operadores aritméticos"""
+    <span class="keyword">def</span> <span class="identifier">metodo_ejemplo</span>(<span class="identifier">self</span>, <span class="identifier">x</span>: <span class="identifier">float</span>, <span class="identifier">y</span>: <span class="identifier">float</span>) -> <span class="identifier">float</span>:
+        <span class="comment"># Método que demuestra operadores aritméticos </span>
         <span class="comment"># Operadores aritméticos: +, -, *, /, //, %, **</span>
-        suma = x + y
-        resta = x - y
-        multiplicacion = x * y
-        division = x / y
-        division_entera = x // y
-        modulo = x % y
-        potencia = x ** y
+        <span class="identifier">suma</span> = <span class="identifier">x</span> + <span class="identifier">y</span>
+        <span class="identifier">resta</span> = <span class="identifier">x</span> - <span class="identifier">y</span>
+        <span class="identifier">multiplicacion</span> = <span class="identifier">x</span> * <span class="identifier">y</span>
+        <span class="identifier">division</span> = <span class="identifier">x</span> / <span class="identifier">y</span>
+        <span class="identifier">division_entera</span> = <span class="identifier">x</span> // <span class="identifier">y</span>
+        <span class="identifier">modulo</span> = <span class="identifier">x</span> % <span class="identifier">y</span>
+        <span class="identifier">potencia</span> = <span class="identifier">x</span> ** <span class="identifier">y</span>
         
         <span class="comment"># Operadores de asignación compuesta: +=, -=, *=, /=, //=, %=, **=</span>
-        suma += <span class="number">10</span>
-        resta -= <span class="number">5</span>
-        multiplicacion *= <span class="number">2</span>
-        division /= <span class="number">3</span>
+        <span class="identifier">suma</span> += <span class="number">10</span>
+        <span class="identifier">resta</span> -= <span class="number">5</span>
+        <span class="identifier">multiplicacion</span> *= <span class="number">2</span>
+        <span class="identifier">division</span> /= <span class="number">3</span>
         
-        <span class="keyword">return</span> suma
+        <span class="keyword">return</span> <span class="identifier">suma</span>
 
 <span class="comment"># Función con diferentes tipos de parámetros</span>
-<span class="keyword">def</span> funcion_compleja(*args, **kwargs):
-    """Función con argumentos variables"""
+<span class="keyword">def</span> <span class="identifier">funcion_compleja</span>(*<span class="identifier">args</span>, **<span class="identifier">kwargs</span>):
+    <span class="comment"># Función con argumentos variables</span>
     <span class="comment"># Operadores de comparación: ==, !=, <, >, <=, >=, is, is not, in, not in</span>
-    <span class="keyword">if</span> len(args) > 0 <span class="keyword">and</span> args[0] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
-        print(f"Primer argumento: {args[0]}")
+    <span class="keyword">if</span> <span class="identifier">len</span>(<span class="identifier">args</span>) > <span class="number">0</span> <span class="keyword">and</span> <span class="identifier">args</span>[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Primer</span> <span class="identifier">argumento</span>: {<span class="identifier">args</span>[<span class="number">0</span>]}")
     
     <span class="comment"># Operadores lógicos: and, or, not</span>
-    <span class="keyword">if</span> args <span class="keyword">and</span> kwargs <span class="keyword">and</span> <span class="keyword">not</span> (len(args) == 0 <span class="keyword">or</span> len(kwargs) == 0):
-        print("Tenemos argumentos")
+    <span class="keyword">if</span> <span class="identifier">args</span> <span class="keyword">and</span> <span class="identifier">kwargs</span> <span class="keyword">and</span> <span class="keyword">not</span> (<span class="identifier">len</span>(<span class="identifier">args</span>) == <span class="number">0</span> <span class="keyword">or</span> <span class="identifier">len</span>(<span class="identifier">kwargs</span>) == <span class="number">0</span>):
+        <span class="identifier">print</span>("<span class="identifier">Tenemos</span> <span class="identifier">argumentos</span>")
     
     <span class="comment"># Operadores de membresía: in, not in</span>
-    <span class="keyword">if</span> 'clave' <span class="keyword">in</span> kwargs:
-        print("Clave encontrada")
+    <span class="keyword">if</span> '<span class="identifier">clave</span>' <span class="keyword">in</span> <span class="identifier">kwargs</span>:
+        <span class="identifier">print</span>("<span class="identifier">Clave</span> <span class="identifier">encontrada</span>")
     
     <span class="comment"># Operadores de identidad: is, is not</span>
-    <span class="keyword">if</span> args[0] <span class="keyword">is</span> <span class="keyword">True</span>:
-        print("Es verdadero")
+    <span class="keyword">if</span> <span class="identifier">args</span>[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">True</span>:
+        <span class="identifier">print</span>("<span class="identifier">Es</span> <span class="identifier">verdadero</span>")
 
 <span class="comment"># Función lambda</span>
-lambda_func = <span class="keyword">lambda</span> x, y: x + y <span class="keyword">if</span> x > 0 <span class="keyword">else</span> y
+<span class="identifier">lambda_func</span> = <span class="keyword">lambda</span> <span class="identifier">x</span>, <span class="identifier">y</span>: <span class="identifier">x</span> + <span class="identifier">y</span> <span class="keyword">if</span> <span class="identifier">x</span> > <span class="number">0</span> <span class="keyword">else</span> <span class="identifier">y</span>
 
 <span class="comment"># Diferentes tipos de datos</span>
 <span class="comment"># Enteros (decimales, hexadecimales, octales, binarios)</span>
-entero_decimal = <span class="number">42</span>
-entero_hex = <span class="number">0xFF</span>
-entero_octal = <span class="number">0o777</span>
-entero_binario = <span class="number">0b1010</span>
+<span class="identifier">entero_decimal</span> = <span class="number">42</span>
+<span class="identifier">entero_hex</span> = <span class="number">0xFF</span>
+<span class="identifier">entero_octal</span> = <span class="number">0o777</span>
+<span class="identifier">entero_binario</span> = <span class="number">0b1010</span>
 
 <span class="comment"># Flotantes</span>
-flotante = <span class="number">3</span>.<span class="number">14159</span>
-flotante_cientifico = <span class="number">1</span>.5e-<span class="number">10</span>
-flotante_negativo = -<span class="number">2</span>.<span class="number">718</span>
+<span class="identifier">flotante</span> = <span class="number">3</span>.<span class="number">14159</span>
+<span class="identifier">flotante_cientifico</span> = <span class="number">1</span>.5e-<span class="number">10</span>
+<span class="identifier">flotante_negativo</span> = -<span class="number">2</span>.<span class="number">718</span>
 
 <span class="comment"># Números complejos</span>
-complejo = <span class="number">3</span> + 4j
+<span class="identifier">complejo</span> = <span class="number">3</span> + 4j
 
 <span class="comment"># Strings con diferentes tipos de comillas</span>
-string_simple = 'cadena simple'
-string_doble = "cadena doble"
-string_triple = '''cadena
-de múltiples
+<span class="identifier">string_simple</span> = '<span class="identifier">cadena</span> <span class="identifier">simple</span>'
+<span class="identifier">string_doble</span> = "<span class="identifier">cadena</span> <span class="identifier">doble</span>"
+<span class="identifier">string_triple</span> = '''<span class="identifier">cadena</span>
+<span class="identifier">de</span> múltiples
 líneas'''
-string_raw = r"cadena raw con \n caracteres especiales"
-string_formatted = f"String formateado: {entero_decimal}"
-string_unicode = "cadena con unicode: ñáéíóú"
+<span class="identifier">string_raw</span> = <span class="identifier">r</span>"<span class="identifier">cadena</span> <span class="identifier">raw</span> <span class="identifier">con</span> \<span class="identifier">n</span> <span class="identifier">caracteres</span> <span class="identifier">especiales</span>"
+<span class="identifier">string_formatted</span> = <span class="identifier">f</span>"<span class="identifier">String</span> <span class="identifier">formateado</span>: {<span class="identifier">entero_decimal</span>}"
+<span class="identifier">string_unicode</span> = "<span class="identifier">cadena</span> <span class="identifier">con</span> <span class="identifier">unicode</span>: ñáéíóú"
 
 <span class="comment"># Listas con diferentes elementos</span>
-lista = [1, 2, 3, "texto", <span class="keyword">True</span>, <span class="keyword">None</span>, [1, 2]]
-lista_comprension = [x**2 <span class="keyword">for</span> x <span class="keyword">in</span> range(10) <span class="keyword">if</span> x % 2 == 0]
+<span class="identifier">lista</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, "<span class="identifier">texto</span>", <span class="keyword">True</span>, <span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">2</span>]]
+<span class="identifier">lista_comprension</span> = [<span class="identifier">x</span>**<span class="number">2</span> <span class="keyword">for</span> <span class="identifier">x</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">10</span>) <span class="keyword">if</span> <span class="identifier">x</span> % <span class="number">2</span> == <span class="number">0</span>]
 
 <span class="comment"># Tuplas</span>
-tupla = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
-tupla_un_elemento = (<span class="number">42</span>,)
+<span class="identifier">tupla</span> = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
+<span class="identifier">tupla_un_elemento</span> = (<span class="number">42</span>,)
 
 <span class="comment"># Diccionarios</span>
-diccionario = {
-    "clave1": "valor1",
-    "clave2": 42,
-    'clave3': [1, 2, 3],
-    42: "clave numérica"
+<span class="identifier">diccionario</span> = {
+    "<span class="identifier">clave1</span>": "<span class="identifier">valor1</span>",
+    "<span class="identifier">clave2</span>": <span class="number">42</span>,
+    '<span class="identifier">clave3</span>': [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],
+    <span class="number">42</span>: "<span class="identifier">clave</span> numérica"
 }
-dict_comprension = {k: v**<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(<span class="number">5</span>))}
+<span class="identifier">dict_comprension</span> = {<span class="identifier">k</span>: <span class="identifier">v</span>**<span class="number">2</span> <span class="keyword">for</span> <span class="identifier">k</span>, <span class="identifier">v</span> <span class="keyword">in</span> <span class="identifier">enumerate</span>(<span class="identifier">range</span>(<span class="number">5</span>))}
 
 <span class="comment"># Conjuntos</span>
-conjunto = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
-conjunto_vacio = set()
+<span class="identifier">conjunto</span> = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
+<span class="identifier">conjunto_vacio</span> = <span class="identifier">set</span>()
 
 # Operadores bit a bit: &, |, ^, ~, <<, >>
-resultado_and = 5 & 3
-resultado_or = 5 | 3
-resultado_xor = 5 ^ 3
-resultado_not = ~5
-desplazamiento_izq = 5 << 2
-desplazamiento_der = 20 >> 2
+<span class="identifier">resultado_and</span> = <span class="number">5</span> & <span class="number">3</span>
+<span class="identifier">resultado_or</span> = <span class="number">5</span> | <span class="number">3</span>
+<span class="identifier">resultado_xor</span> = <span class="number">5</span> ^ <span class="number">3</span>
+<span class="identifier">resultado_not</span> = ~<span class="number">5</span>
+<span class="identifier">desplazamiento_izq</span> = <span class="number">5</span> << <span class="number">2</span>
+<span class="identifier">desplazamiento_der</span> = <span class="number">20</span> >> <span class="number">2</span>
 
 <span class="comment"># Estructura de control: if-elif-else</span>
-<span class="keyword">def</span> control_flujo(valor):
-    <span class="keyword">if</span> valor > 10:
-        print("Mayor que 10")
-    <span class="keyword">elif</span> valor > 5:
-        print("Entre 5 y 10")
+<span class="keyword">def</span> <span class="identifier">control_flujo</span>(<span class="identifier">valor</span>):
+    <span class="keyword">if</span> <span class="identifier">valor</span> > <span class="number">10</span>:
+        <span class="identifier">print</span>("<span class="identifier">Mayor</span> <span class="identifier">que</span> <span class="number">10</span>")
+    <span class="keyword">elif</span> <span class="identifier">valor</span> > <span class="number">5</span>:
+        <span class="identifier">print</span>("<span class="identifier">Entre</span> <span class="number">5</span> <span class="identifier">y</span> <span class="number">10</span>")
     <span class="keyword">else</span>:
-        print("Menor o igual a 5")
+        <span class="identifier">print</span>("<span class="identifier">Menor</span> <span class="identifier">o</span> <span class="identifier">igual</span> <span class="identifier">a</span> <span class="number">5</span>")
 
 <span class="comment"># Bucles: for y while</span>
-<span class="keyword">def</span> bucles_ejemplo():
+<span class="keyword">def</span> <span class="identifier">bucles_ejemplo</span>():
     <span class="comment"># Bucle for</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):
-        <span class="keyword">if</span> i == <span class="number">5</span>:
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">10</span>):
+        <span class="keyword">if</span> <span class="identifier">i</span> == <span class="number">5</span>:
             <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
-        <span class="keyword">if</span> i == <span class="number">8</span>:
+        <span class="keyword">if</span> <span class="identifier">i</span> == <span class="number">8</span>:
             <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
-        print(i)
+        <span class="identifier">print</span>(<span class="identifier">i</span>)
     
     <span class="comment"># Bucle while</span>
-    contador = 0
-    <span class="keyword">while</span> contador < 5:
-        print(f"Contador: {contador}")
-        contador += 1
+    <span class="identifier">contador</span> = <span class="number">0</span>
+    <span class="keyword">while</span> <span class="identifier">contador</span> < <span class="number">5</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Contador</span>: {<span class="identifier">contador</span>}")
+        <span class="identifier">contador</span> += <span class="number">1</span>
 
 <span class="comment"># Manejo de excepciones: try-except-finally</span>
-<span class="keyword">def</span> manejo_excepciones():
+<span class="keyword">def</span> <span class="identifier">manejo_excepciones</span>():
     <span class="keyword">try</span>:
-        resultado = <span class="number">10</span> / <span class="number">0</span>
-    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
-        print(f"Error: {e}")
-    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
-        print(f"Error general: {e}")
+        <span class="identifier">resultado</span> = <span class="number">10</span> / <span class="number">0</span>
+    <span class="keyword">except</span> <span class="identifier">ZeroDivisionError</span> <span class="keyword">as</span> <span class="identifier">e</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Error</span>: {<span class="identifier">e</span>}")
+    <span class="keyword">except</span> <span class="identifier">Exception</span> <span class="keyword">as</span> <span class="identifier">e</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Error</span> <span class="identifier">general</span>: {<span class="identifier">e</span>}")
     <span class="keyword">else</span>:
-        print("No hubo errores")
+        <span class="identifier">print</span>("<span class="identifier">No</span> <span class="identifier">hubo</span> <span class="identifier">errores</span>")
     <span class="keyword">finally</span>:
-        print("Siempre se ejecuta")
+        <span class="identifier">print</span>("<span class="identifier">Siempre</span> <span class="identifier">se</span> <span class="identifier">ejecuta</span>")
 
 <span class="comment"># Context manager: with</span>
-<span class="keyword">def</span> context_manager_ejemplo():
-    <span class="keyword">with</span> open("archivo.txt", "w") <span class="keyword">as</span> archivo:
-        archivo.write("Contenido <span class="keyword">del</span> archivo")
+<span class="keyword">def</span> <span class="identifier">context_manager_ejemplo</span>():
+    <span class="keyword">with</span> <span class="identifier">open</span>("<span class="identifier">archivo</span>.<span class="identifier">txt</span>", "<span class="identifier">w</span>") <span class="keyword">as</span> <span class="identifier">archivo</span>:
+        <span class="identifier">archivo</span>.<span class="identifier">write</span>("<span class="identifier">Contenido</span> <span class="keyword">del</span> <span class="identifier">archivo</span>")
 
 <span class="comment"># Generadores y yield</span>
-<span class="keyword">def</span> generador():
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
-        <span class="keyword">yield</span> i**<span class="number">2</span>
+<span class="keyword">def</span> <span class="identifier">generador</span>():
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="number">5</span>):
+        <span class="keyword">yield</span> <span class="identifier">i</span>**<span class="number">2</span>
 
 <span class="comment"># Decoradores</span>
-<span class="keyword">def</span> decorador(func):
-    <span class="keyword">def</span> wrapper(*args, **kwargs):
-        print("Antes de la función")
-        resultado = func(*args, **kwargs)
-        print("Después de la función")
-        <span class="keyword">return</span> resultado
-    <span class="keyword">return</span> wrapper
+<span class="keyword">def</span> <span class="identifier">decorador</span>(<span class="identifier">func</span>):
+    <span class="keyword">def</span> <span class="identifier">wrapper</span>(*<span class="identifier">args</span>, **<span class="identifier">kwargs</span>):
+        <span class="identifier">print</span>("<span class="identifier">Antes</span> <span class="identifier">de</span> <span class="identifier">la</span> función")
+        <span class="identifier">resultado</span> = <span class="identifier">func</span>(*<span class="identifier">args</span>, **<span class="identifier">kwargs</span>)
+        <span class="identifier">print</span>("Después <span class="identifier">de</span> <span class="identifier">la</span> función")
+        <span class="keyword">return</span> <span class="identifier">resultado</span>
+    <span class="keyword">return</span> <span class="identifier">wrapper</span>
 
-@decorador
-<span class="keyword">def</span> funcion_decorada():
-    print("Función decorada")
+@<span class="identifier">decorador</span>
+<span class="keyword">def</span> <span class="identifier">funcion_decorada</span>():
+    <span class="identifier">print</span>("Función <span class="identifier">decorada</span>")
 
 <span class="comment"># Variables globales y nonlocal</span>
-variable_global = "<span class="keyword">global</span>"
+<span class="identifier">variable_global</span> = "<span class="keyword">global</span>"
 
-<span class="keyword">def</span> funcion_externa():
-    variable_local = "local"
+<span class="keyword">def</span> <span class="identifier">funcion_externa</span>():
+    <span class="identifier">variable_local</span> = "<span class="identifier">local</span>"
     
-    <span class="keyword">def</span> funcion_interna():
-        <span class="keyword">nonlocal</span> variable_local
-        <span class="keyword">global</span> variable_global
-        variable_local = "modificada"
-        variable_global = "modificada globalmente"
+    <span class="keyword">def</span> <span class="identifier">funcion_interna</span>():
+        <span class="keyword">nonlocal</span> <span class="identifier">variable_local</span>
+        <span class="keyword">global</span> <span class="identifier">variable_global</span>
+        <span class="identifier">variable_local</span> = "<span class="identifier">modificada</span>"
+        <span class="identifier">variable_global</span> = "<span class="identifier">modificada</span> <span class="identifier">globalmente</span>"
     
-    funcion_interna()
-    <span class="keyword">return</span> variable_local
+    <span class="identifier">funcion_interna</span>()
+    <span class="keyword">return</span> <span class="identifier">variable_local</span>
 
 <span class="comment"># Expresiones regulares y caracteres especiales</span>
-patron_regex = r"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
+<span class="identifier">patron_regex</span> = <span class="identifier">r</span>"[<span class="identifier">a</span>-<span class="identifier">zA</span>-<span class="identifier">Z0</span>-<span class="number">9</span>]+@[<span class="identifier">a</span>-<span class="identifier">zA</span>-<span class="identifier">Z0</span>-<span class="number">9</span>]+\.[<span class="identifier">a</span>-<span class="identifier">zA</span>-<span class="identifier">Z</span>]{<span class="number">2</span>,}"
 
 <span class="comment"># Función principal</span>
 <span class="keyword">def</span> <span class="keyword">main</span>():
-    """Función principal que demuestra el uso de todas las clases léxicas"""
-    print("=== Demostración de clases léxicas ===")
+    <span class="comment"># Función principal que demuestra el uso de todas las clases léxicas</span>
+    <span class="identifier">print</span>("=== Demostración <span class="identifier">de</span> <span class="identifier">clases</span> léxicas ===")
     
     <span class="comment"># Instanciar clase</span>
-    objeto = MiClase(<span class="number">100</span>)
-    resultado = objeto.metodo_ejemplo(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
+    <span class="identifier">objeto</span> = <span class="identifier">MiClase</span>(<span class="number">100</span>)
+    <span class="identifier">resultado</span> = <span class="identifier">objeto</span>.<span class="identifier">metodo_ejemplo</span>(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
     
     <span class="comment"># Llamar funciones</span>
-    funcion_compleja(1, 2, 3, clave="valor", otra_clave=42)
-    control_flujo(15)
-    bucles_ejemplo()
-    manejo_excepciones()
+    <span class="identifier">funcion_compleja</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="identifier">clave</span>="<span class="identifier">valor</span>", <span class="identifier">otra_clave</span>=<span class="number">42</span>)
+    <span class="identifier">control_flujo</span>(<span class="number">15</span>)
+    <span class="identifier">bucles_ejemplo</span>()
+    <span class="identifier">manejo_excepciones</span>()
     
     <span class="comment"># Usar generador</span>
-    gen = generador()
-    <span class="keyword">for</span> valor <span class="keyword">in</span> gen:
-        print(f"Valor generado: {valor}")
+    <span class="identifier">gen</span> = <span class="identifier">generador</span>()
+    <span class="keyword">for</span> <span class="identifier">valor</span> <span class="keyword">in</span> <span class="identifier">gen</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Valor</span> <span class="identifier">generado</span>: {<span class="identifier">valor</span>}")
     
     <span class="comment"># Función decorada</span>
-    funcion_decorada()
+    <span class="identifier">funcion_decorada</span>()
     
     <span class="comment"># Función externa</span>
-    resultado_local = funcion_externa()
-    print(f"Resultado local: {resultado_local}")
+    <span class="identifier">resultado_local</span> = <span class="identifier">funcion_externa</span>()
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="identifier">local</span>: {<span class="identifier">resultado_local</span>}")
     
     <span class="comment"># Operador ternario</span>
-    resultado_ternario = "positivo" <span class="keyword">if</span> resultado > 0 <span class="keyword">else</span> "negativo"
-    print(f"Resultado ternario: {resultado_ternario}")
+    <span class="identifier">resultado_ternario</span> = "<span class="identifier">positivo</span>" <span class="keyword">if</span> <span class="identifier">resultado</span> > <span class="number">0</span> <span class="keyword">else</span> "<span class="identifier">negativo</span>"
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="identifier">ternario</span>: {<span class="identifier">resultado_ternario</span>}")
     
     <span class="comment"># Función lambda</span>
-    resultado_lambda = lambda_func(5, 3)
-    print(f"Resultado <span class="keyword">lambda</span>: {resultado_lambda}")
+    <span class="identifier">resultado_lambda</span> = <span class="identifier">lambda_func</span>(<span class="number">5</span>, <span class="number">3</span>)
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Resultado</span> <span class="keyword">lambda</span>: {<span class="identifier">resultado_lambda</span>}")
     
     <span class="comment"># Unpacking</span>
-    a, b, *resto = [1, 2, 3, 4, 5]
-    print(f"a={a}, b={b}, resto={resto}")
+    <span class="identifier">a</span>, <span class="identifier">b</span>, *<span class="identifier">resto</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+    <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">a</span>={<span class="identifier">a</span>}, <span class="identifier">b</span>={<span class="identifier">b</span>}, <span class="identifier">resto</span>={<span class="identifier">resto</span>}")
     
     <span class="comment"># Walrus operator (Python 3.8+)</span>
-    <span class="keyword">if</span> (n := len(lista)) > 5:
-        print(f"Lista tiene {n} elementos")
+    <span class="keyword">if</span> (<span class="identifier">n</span> := <span class="identifier">len</span>(<span class="identifier">lista</span>)) > <span class="number">5</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Lista</span> <span class="identifier">tiene</span> {<span class="identifier">n</span>} <span class="identifier">elementos</span>")
     
     <span class="keyword">return</span> <span class="number">0</span>
 
 <span class="comment"># Ejecutar si es el archivo principal</span>
-<span class="keyword">if</span> __name__ == "__main__":
+<span class="keyword">if</span> <span class="identifier">__name__</span> == "<span class="identifier">__main__</span>":
     <span class="comment"># Comentario de línea final</span>
-    exit_code = <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
-    exit(exit_code)     <span class="comment"># Salida del programa</span></pre>
+    <span class="identifier">exit_code</span> = <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
+    <span class="identifier">exit</span>(<span class="identifier">exit_code</span>)     <span class="comment"># Salida del programa</span></pre>
     </div>
 </body>
 </html>
