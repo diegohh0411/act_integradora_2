@@ -1,5 +1,5 @@
 # hola este es un comentario
-import math
+import math # aquí importamos la librería math
 
 def main():
     if True:

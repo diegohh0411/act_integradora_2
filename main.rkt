@@ -1,7 +1,9 @@
 #lang racket
 
 (require "dfa.rkt"
-         "keywords-dfa.rkt")
+         "keywords-dfa.rkt"
+         "comments-dfa.rkt"
+         )
 
 ;; Pure function to escape HTML special characters
 (define (escape-html text)
@@ -22,6 +24,27 @@
   (define (is-identifier-char? c)
     (or (char-alphabetic? c) (char-numeric? c) (char=? c #\_)))
   
+  ;; Helper function to extract comment from current position to end of line
+  (define (extract-comment-line str)
+    (define (extract-helper remaining acc)
+      (cond
+        [(string=? remaining "") acc]
+        [(char=? (string-ref remaining 0) #\newline) acc]
+        [(char=? (string-ref remaining 0) #\return) acc]
+        [else (extract-helper (substring remaining 1) 
+                             (string-append acc (string (string-ref remaining 0))))]))
+    (extract-helper str ""))
+  
+  ;; Helper function to skip comment in the string
+  (define (skip-comment-line str)
+    (define (skip-helper remaining)
+      (cond
+        [(string=? remaining "") ""]
+        [(char=? (string-ref remaining 0) #\newline) remaining]
+        [(char=? (string-ref remaining 0) #\return) remaining]
+        [else (skip-helper (substring remaining 1))]))
+    (skip-helper str))
+  
   (define (split-helper str acc current-token token-type)
     (cond
       [(string=? str "") 
@@ -31,7 +54,13 @@
       [else
        (let ([first-char (string-ref str 0)]
              [rest-str (substring str 1)])
-         (cond
+         (cond           ;; Handle comments - detect # anywhere and treat rest of line as comment
+           [(char=? first-char #\#)
+            (let ([comment-line (string-append "#" (extract-comment-line rest-str))]
+                  [remaining-str (skip-comment-line rest-str)])
+              (if (string=? current-token "")
+                  (split-helper remaining-str (cons comment-line acc) "" 'none)
+                  (split-helper remaining-str (cons comment-line (cons current-token acc)) "" 'none)))]
            ;; Handle whitespace
            [(char-whitespace? first-char)
             (cond
@@ -150,7 +179,8 @@
 
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
-  (list (cons keywords-dfa-list "keyword")))
+  (list (cons keywords-dfa-list "keyword")
+        (cons comments-dfa-list "comment")))
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)
@@ -178,4 +208,7 @@
 
 ;; Run the main function
 (main)
+
+;; Export for debugging
+(provide tokenize find-matching-class get-dfa-class-pairs)
 
