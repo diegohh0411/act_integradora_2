@@ -4,7 +4,6 @@
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
          "numbers-dfa.rkt"
-         "strings-dfa.rkt"
          )
 
 ;; Pure function to split text into tokens while preserving whitespace and separating symbols
@@ -138,7 +137,6 @@
    "        .code-container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }\n"
    "        .keyword { color: #000fff; font-weight: bold; }\n"
    "        .number { color: #008000; font-weight: bold; }\n"
-   "        .string { color: #ff0000; }\n"
    "        .comment { color: #808080; font-style: italic; }\n"
    "        .identifier { color: #000080; }\n"
    "        .operator { color: #ff8000; font-weight: bold; }\n"
@@ -176,7 +174,6 @@
   (list (cons keywords-dfa-list "keyword")
         (cons comments-dfa-list "comment")
         (cons numbers-dfa-list "number")
-        (cons strings-dfa-list "string")
         ))
 
 ;; IO function to read file safely
