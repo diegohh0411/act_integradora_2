@@ -1,8 +1,4 @@
 # Este archivo contiene ejemplos de todas las clases léxicas de Python
-"""
-Comentario de múltiples líneas
-que demuestra las docstrings
-"""
 
 # Importaciones con diferentes variantes
 import math
@@ -14,7 +10,6 @@ from typing import List, Dict, Optional, Union
 
 # Definición de clase con herencia
 class MiClase(object):
-    """Docstring de la clase"""
     
     # Variable de clase
     variable_clase = "valor_clase"
@@ -26,7 +21,7 @@ class MiClase(object):
         self.__atributo_muy_privado = "secreto"
     
     def metodo_ejemplo(self, x: float, y: float) -> float:
-        """Método que demuestra operadores aritméticos"""
+        # Método que demuestra operadores aritméticos 
         # Operadores aritméticos: +, -, *, /, //, %, **
         suma = x + y
         resta = x - y
@@ -46,7 +41,7 @@ class MiClase(object):
 
 # Función con diferentes tipos de parámetros
 def funcion_compleja(*args, **kwargs):
-    """Función con argumentos variables"""
+    # Función con argumentos variables
     # Operadores de comparación: ==, !=, <, >, <=, >=, is, is not, in, not in
     if len(args) > 0 and args[0] is not None:
         print(f"Primer argumento: {args[0]}")
@@ -201,7 +196,7 @@ patron_regex = r"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
 
 # Función principal
 def main():
-    """Función principal que demuestra el uso de todas las clases léxicas"""
+    # Función principal que demuestra el uso de todas las clases léxicas
     print("=== Demostración de clases léxicas ===")
     
     # Instanciar clase

@@ -9,9 +9,8 @@
         .code-container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .keyword { color: #000fff; font-weight: bold; }
         .number { color: #008000; font-weight: bold; }
-        .string { color: #ff0000; }
         .comment { color: #808080; font-style: italic; }
-        .identifier { color: #000080; }
+        .identifier { color: #F80080; }
         .operator { color: #ff8000; font-weight: bold; }
         pre { white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; }
         h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -19,24 +18,26 @@
 </head>
 <body>
     <div class="code-container">
-        <h2>Python Code with DFA-based Syntax Highlighting</h2>
+        <h2>Actividad Integradora 2 de Diego Hernández y Lucio Collins</h2>
+        <p>Los colores de resaltado corresponden a:</p>
+        <ul>
+            <li><span class="keyword">keyword</span>: palabras reservadas de Python</li>
+            <li><span class="comment">comment</span>: comentarios en el código</li>
+            <li><span class="number">number</span>: literales numéricos</li>
+            <li><span class="identifier">identifier</span>: identificadores (nombres de variables, funciones, etc.)</li>
+        </ul>
         <pre><span class="comment"># Este archivo contiene ejemplos de todas las clases léxicas de Python</span>
-&amp;quot;&amp;quot;&amp;quot;
-Comentario de múltiples líneas
-que demuestra las docstrings
-&amp;quot;&amp;quot;&amp;quot;
 
 <span class="comment"># Importaciones con diferentes variantes</span>
-<span class="keyword">import</span> math
-<span class="keyword">import</span> os <span class="keyword">as</span> sistema
-<span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict, Counter
-<span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict, Optional, Union
+<span class="keyword">import</span> <span class="identifier">math</span>
+<span class="keyword">import</span> <span class="identifier">os</span> <span class="keyword">as</span> <span class="identifier">sistema</span>
+<span class="keyword">from</span> <span class="identifier">collections</span> <span class="keyword">import</span> <span class="identifier">defaultdict</span>, <span class="identifier">Counter</span>
+<span class="keyword">from</span> <span class="identifier">typing</span> <span class="keyword">import</span> <span class="identifier">List</span>, <span class="identifier">Dict</span>, <span class="identifier">Optional</span>, <span class="identifier">Union</span>
 
 <span class="comment"># Keywords: def, class, if, elif, else, for, while, try, except, finally, with, as, import, from, return, yield, break, continue, pass, global, nonlocal, lambda, and, or, not, in, is, True, False, None</span>
 
 <span class="comment"># Definición de clase con herencia</span>
-<span class="keyword">class</span> MiClase(object):
-    &amp;quot;&amp;quot;&amp;quot;Docstring de la clase&amp;quot;&amp;quot;&amp;quot;
+<span class="keyword">class</span> <span class="identifier">MiClase</span>(<span class="identifier">object</span>):
     
     <span class="comment"># Variable de clase</span>
     variable_clase <span class="operator">=</span> &amp;quot;valor_clase&amp;quot;
@@ -47,8 +48,8 @@ que demuestra las docstrings
         self._atributo_privado <span class="operator">=</span> <span class="keyword">None</span>
         self.__atributo_muy_privado <span class="operator">=</span> &amp;quot;secreto&amp;quot;
     
-    <span class="keyword">def</span> metodo_ejemplo(self, x: float, y: float) -&amp;gt; float:
-        &amp;quot;&amp;quot;&amp;quot;Método que demuestra operadores aritméticos&amp;quot;&amp;quot;&amp;quot;
+    <span class="keyword">def</span> <span class="identifier">metodo_ejemplo</span>(<span class="identifier">self</span>, <span class="identifier">x</span>: <span class="identifier">float</span>, <span class="identifier">y</span>: <span class="identifier">float</span>) -> <span class="identifier">float</span>:
+        <span class="comment"># Método que demuestra operadores aritméticos </span>
         <span class="comment"># Operadores aritméticos: +, -, *, /, //, %, **</span>
         suma <span class="operator">=</span> x <span class="operator">+</span> y
         resta <span class="operator">=</span> x <span class="operator">-</span> y
@@ -64,7 +65,7 @@ que demuestra las docstrings
         multiplicacion <span class="operator">*=</span> <span class="number">2</span>
         division <span class="operator">/=</span> <span class="number">3</span>
         
-        <span class="keyword">return</span> suma
+        <span class="keyword">return</span> <span class="identifier">suma</span>
 
 <span class="comment"># Función con diferentes tipos de parámetros</span>
 <span class="keyword">def</span> funcion_compleja(*args, <span class="operator">**</span>kwargs):
@@ -78,12 +79,12 @@ que demuestra las docstrings
         print(&amp;quot;Tenemos argumentos&amp;quot;)
     
     <span class="comment"># Operadores de membresía: in, not in</span>
-    <span class="keyword">if</span> 'clave' <span class="keyword">in</span> kwargs:
-        print(&amp;quot;Clave encontrada&amp;quot;)
+    <span class="keyword">if</span> '<span class="identifier">clave</span>' <span class="keyword">in</span> <span class="identifier">kwargs</span>:
+        <span class="identifier">print</span>("<span class="identifier">Clave</span> <span class="identifier">encontrada</span>")
     
     <span class="comment"># Operadores de identidad: is, is not</span>
-    <span class="keyword">if</span> args[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">True</span>:
-        print(&amp;quot;Es verdadero&amp;quot;)
+    <span class="keyword">if</span> <span class="identifier">args</span>[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">True</span>:
+        <span class="identifier">print</span>("<span class="identifier">Es</span> <span class="identifier">verdadero</span>")
 
 <span class="comment"># Función lambda</span>
 lambda_func <span class="operator">=</span> <span class="keyword">lambda</span> x, y: x <span class="operator">+</span> y <span class="keyword">if</span> x &amp;gt; <span class="number">0</span> <span class="keyword">else</span> y
@@ -143,23 +144,23 @@ desplazamiento_izq <span class="operator">=</span> <span class="number">5</span>
 desplazamiento_der <span class="operator">=</span> <span class="number">20</span> &amp;gt;&amp;gt; <span class="number">2</span>
 
 <span class="comment"># Estructura de control: if-elif-else</span>
-<span class="keyword">def</span> control_flujo(valor):
-    <span class="keyword">if</span> valor &amp;gt; <span class="number">10</span>:
-        print(&amp;quot;Mayor que <span class="number">10</span>&amp;quot;)
-    <span class="keyword">elif</span> valor &amp;gt; <span class="number">5</span>:
-        print(&amp;quot;Entre <span class="number">5</span> y <span class="number">10</span>&amp;quot;)
+<span class="keyword">def</span> <span class="identifier">control_flujo</span>(<span class="identifier">valor</span>):
+    <span class="keyword">if</span> <span class="identifier">valor</span> > <span class="number">10</span>:
+        <span class="identifier">print</span>("<span class="identifier">Mayor</span> <span class="identifier">que</span> <span class="number">10</span>")
+    <span class="keyword">elif</span> <span class="identifier">valor</span> > <span class="number">5</span>:
+        <span class="identifier">print</span>("<span class="identifier">Entre</span> <span class="number">5</span> <span class="identifier">y</span> <span class="number">10</span>")
     <span class="keyword">else</span>:
-        print(&amp;quot;Menor o igual a <span class="number">5</span>&amp;quot;)
+        <span class="identifier">print</span>("<span class="identifier">Menor</span> <span class="identifier">o</span> <span class="identifier">igual</span> <span class="identifier">a</span> <span class="number">5</span>")
 
 <span class="comment"># Bucles: for y while</span>
-<span class="keyword">def</span> bucles_ejemplo():
+<span class="keyword">def</span> <span class="identifier">bucles_ejemplo</span>():
     <span class="comment"># Bucle for</span>
     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):
         <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">5</span>:
             <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
         <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">8</span>:
             <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
-        print(i)
+        <span class="identifier">print</span>(<span class="identifier">i</span>)
     
     <span class="comment"># Bucle while</span>
     contador <span class="operator">=</span> <span class="number">0</span>
@@ -168,7 +169,7 @@ desplazamiento_der <span class="operator">=</span> <span class="number">20</span
         contador <span class="operator">+=</span> <span class="number">1</span>
 
 <span class="comment"># Manejo de excepciones: try-except-finally</span>
-<span class="keyword">def</span> manejo_excepciones():
+<span class="keyword">def</span> <span class="identifier">manejo_excepciones</span>():
     <span class="keyword">try</span>:
         resultado <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">0</span>
     <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
@@ -176,14 +177,14 @@ desplazamiento_der <span class="operator">=</span> <span class="number">20</span
     <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
         print(f&amp;quot;Error general: {e}&amp;quot;)
     <span class="keyword">else</span>:
-        print(&amp;quot;No hubo errores&amp;quot;)
+        <span class="identifier">print</span>("<span class="identifier">No</span> <span class="identifier">hubo</span> <span class="identifier">errores</span>")
     <span class="keyword">finally</span>:
-        print(&amp;quot;Siempre se ejecuta&amp;quot;)
+        <span class="identifier">print</span>("<span class="identifier">Siempre</span> <span class="identifier">se</span> <span class="identifier">ejecuta</span>")
 
 <span class="comment"># Context manager: with</span>
-<span class="keyword">def</span> context_manager_ejemplo():
-    <span class="keyword">with</span> open(&amp;quot;archivo.txt&amp;quot;, &amp;quot;w&amp;quot;) <span class="keyword">as</span> archivo:
-        archivo.write(&amp;quot;Contenido <span class="keyword">del</span> archivo&amp;quot;)
+<span class="keyword">def</span> <span class="identifier">context_manager_ejemplo</span>():
+    <span class="keyword">with</span> <span class="identifier">open</span>("<span class="identifier">archivo</span>.<span class="identifier">txt</span>", "<span class="identifier">w</span>") <span class="keyword">as</span> <span class="identifier">archivo</span>:
+        <span class="identifier">archivo</span>.<span class="identifier">write</span>("<span class="identifier">Contenido</span> <span class="keyword">del</span> <span class="identifier">archivo</span>")
 
 <span class="comment"># Generadores y yield</span>
 <span class="keyword">def</span> generador():
@@ -199,9 +200,9 @@ desplazamiento_der <span class="operator">=</span> <span class="number">20</span
         <span class="keyword">return</span> resultado
     <span class="keyword">return</span> wrapper
 
-@decorador
-<span class="keyword">def</span> funcion_decorada():
-    print(&amp;quot;Función decorada&amp;quot;)
+@<span class="identifier">decorador</span>
+<span class="keyword">def</span> <span class="identifier">funcion_decorada</span>():
+    <span class="identifier">print</span>("Función <span class="identifier">decorada</span>")
 
 <span class="comment"># Variables globales y nonlocal</span>
 variable_global <span class="operator">=</span> &amp;quot;<span class="keyword">global</span>&amp;quot;
@@ -215,16 +216,16 @@ variable_global <span class="operator">=</span> &amp;quot;<span class="keyword">
         variable_local <span class="operator">=</span> &amp;quot;modificada&amp;quot;
         variable_global <span class="operator">=</span> &amp;quot;modificada globalmente&amp;quot;
     
-    funcion_interna()
-    <span class="keyword">return</span> variable_local
+    <span class="identifier">funcion_interna</span>()
+    <span class="keyword">return</span> <span class="identifier">variable_local</span>
 
 <span class="comment"># Expresiones regulares y caracteres especiales</span>
 patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+@[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+\.[a<span class="operator">-</span>zA<span class="operator">-</span>Z]{<span class="number">2</span>,}&amp;quot;
 
 <span class="comment"># Función principal</span>
 <span class="keyword">def</span> <span class="keyword">main</span>():
-    &amp;quot;&amp;quot;&amp;quot;Función principal que demuestra el uso de todas las clases léxicas&amp;quot;&amp;quot;&amp;quot;
-    print(&amp;quot;=== Demostración de clases léxicas ===&amp;quot;)
+    <span class="comment"># Función principal que demuestra el uso de todas las clases léxicas</span>
+    <span class="identifier">print</span>("=== Demostración <span class="identifier">de</span> <span class="identifier">clases</span> léxicas ===")
     
     <span class="comment"># Instanciar clase</span>
     objeto <span class="operator">=</span> MiClase(<span class="number">100</span>)
@@ -242,7 +243,7 @@ patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator"
         print(f&amp;quot;Valor generado: {valor}&amp;quot;)
     
     <span class="comment"># Función decorada</span>
-    funcion_decorada()
+    <span class="identifier">funcion_decorada</span>()
     
     <span class="comment"># Función externa</span>
     resultado_local <span class="operator">=</span> funcion_externa()
@@ -261,8 +262,8 @@ patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator"
     print(f&amp;quot;a={a}, b={b}, resto={resto}&amp;quot;)
     
     <span class="comment"># Walrus operator (Python 3.8+)</span>
-    <span class="keyword">if</span> (n := len(lista)) &amp;gt; <span class="number">5</span>:
-        print(f&amp;quot;Lista tiene {n} elementos&amp;quot;)
+    <span class="keyword">if</span> (<span class="identifier">n</span> := <span class="identifier">len</span>(<span class="identifier">lista</span>)) > <span class="number">5</span>:
+        <span class="identifier">print</span>(<span class="identifier">f</span>"<span class="identifier">Lista</span> <span class="identifier">tiene</span> {<span class="identifier">n</span>} <span class="identifier">elementos</span>")
     
     <span class="keyword">return</span> <span class="number">0</span>
 
