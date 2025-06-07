@@ -180,7 +180,9 @@
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
   (list (cons keywords-dfa-list "keyword")
-        (cons comments-dfa-list "comment")))
+        (cons comments-dfa-list "comment"))
+        
+        )
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)

@@ -20,15 +20,257 @@
 <body>
     <div class="code-container">
         <h2>Python Code with DFA-based Syntax Highlighting</h2>
-        <pre><span class="comment"># hola este es un comentario</span>
-<span class="keyword">import</span> math <span class="comment"># aquí importamos la librería math</span>
+        <pre><span class="comment"># Este archivo contiene ejemplos de todas las clases léxicas de Python</span>
+&amp;quot;&amp;quot;&amp;quot;
+Comentario de múltiples líneas
+que demuestra las docstrings
+&amp;quot;&amp;quot;&amp;quot;
 
+<span class="comment"># Importaciones con diferentes variantes</span>
+<span class="keyword">import</span> math
+<span class="keyword">import</span> os <span class="keyword">as</span> sistema
+<span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict, Counter
+<span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict, Optional, Union
+
+<span class="comment"># Keywords: def, class, if, elif, else, for, while, try, except, finally, with, as, import, from, return, yield, break, continue, pass, global, nonlocal, lambda, and, or, not, in, is, True, False, None</span>
+
+<span class="comment"># Definición de clase con herencia</span>
+<span class="keyword">class</span> MiClase(object):
+    &amp;quot;&amp;quot;&amp;quot;Docstring de la clase&amp;quot;&amp;quot;&amp;quot;
+    
+    <span class="comment"># Variable de clase</span>
+    variable_clase = &amp;quot;valor_clase&amp;quot;
+    
+    <span class="keyword">def</span> __init__(self, parametro: int = 0):
+        <span class="comment"># Operador de asignación</span>
+        self.atributo = parametro
+        self._atributo_privado = <span class="keyword">None</span>
+        self.__atributo_muy_privado = &amp;quot;secreto&amp;quot;
+    
+    <span class="keyword">def</span> metodo_ejemplo(self, x: float, y: float) -&amp;gt; float:
+        &amp;quot;&amp;quot;&amp;quot;Método que demuestra operadores aritméticos&amp;quot;&amp;quot;&amp;quot;
+        <span class="comment"># Operadores aritméticos: +, -, *, /, //, %, **</span>
+        suma = x + y
+        resta = x - y
+        multiplicacion = x * y
+        division = x / y
+        division_entera = x // y
+        modulo = x % y
+        potencia = x ** y
+        
+        <span class="comment"># Operadores de asignación compuesta: +=, -=, *=, /=, //=, %=, **=</span>
+        suma += 10
+        resta -= 5
+        multiplicacion *= 2
+        division /= 3
+        
+        <span class="keyword">return</span> suma
+
+<span class="comment"># Función con diferentes tipos de parámetros</span>
+<span class="keyword">def</span> funcion_compleja(*args, **kwargs):
+    &amp;quot;&amp;quot;&amp;quot;Función con argumentos variables&amp;quot;&amp;quot;&amp;quot;
+    <span class="comment"># Operadores de comparación: ==, !=, &amp;lt;, &amp;gt;, &amp;lt;=, &amp;gt;=, is, is not, in, not in</span>
+    <span class="keyword">if</span> len(args) &amp;gt; 0 <span class="keyword">and</span> args[0] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
+        print(f&amp;quot;Primer argumento: {args[0]}&amp;quot;)
+    
+    <span class="comment"># Operadores lógicos: and, or, not</span>
+    <span class="keyword">if</span> args <span class="keyword">and</span> kwargs <span class="keyword">and</span> <span class="keyword">not</span> (len(args) == 0 <span class="keyword">or</span> len(kwargs) == 0):
+        print(&amp;quot;Tenemos argumentos&amp;quot;)
+    
+    <span class="comment"># Operadores de membresía: in, not in</span>
+    <span class="keyword">if</span> 'clave' <span class="keyword">in</span> kwargs:
+        print(&amp;quot;Clave encontrada&amp;quot;)
+    
+    <span class="comment"># Operadores de identidad: is, is not</span>
+    <span class="keyword">if</span> args[0] <span class="keyword">is</span> <span class="keyword">True</span>:
+        print(&amp;quot;Es verdadero&amp;quot;)
+
+<span class="comment"># Función lambda</span>
+lambda_func = <span class="keyword">lambda</span> x, y: x + y <span class="keyword">if</span> x &amp;gt; 0 <span class="keyword">else</span> y
+
+<span class="comment"># Diferentes tipos de datos</span>
+<span class="comment"># Enteros (decimales, hexadecimales, octales, binarios)</span>
+entero_decimal = 42
+entero_hex = 0xFF
+entero_octal = 0o777
+entero_binario = 0b1010
+
+<span class="comment"># Flotantes</span>
+flotante = 3.14159
+flotante_cientifico = 1.5e-10
+flotante_negativo = -2.718
+
+<span class="comment"># Números complejos</span>
+complejo = 3 + 4j
+
+<span class="comment"># Strings con diferentes tipos de comillas</span>
+string_simple = 'cadena simple'
+string_doble = &amp;quot;cadena doble&amp;quot;
+string_triple = '''cadena
+de múltiples
+líneas'''
+string_raw = r&amp;quot;cadena raw con \n caracteres especiales&amp;quot;
+string_formatted = f&amp;quot;String formateado: {entero_decimal}&amp;quot;
+string_unicode = &amp;quot;cadena con unicode: ñáéíóú&amp;quot;
+
+<span class="comment"># Listas con diferentes elementos</span>
+lista = [1, 2, 3, &amp;quot;texto&amp;quot;, <span class="keyword">True</span>, <span class="keyword">None</span>, [1, 2]]
+lista_comprension = [x**2 <span class="keyword">for</span> x <span class="keyword">in</span> range(10) <span class="keyword">if</span> x % 2 == 0]
+
+<span class="comment"># Tuplas</span>
+tupla = (1, 2, 3)
+tupla_un_elemento = (42,)
+
+<span class="comment"># Diccionarios</span>
+diccionario = {
+    &amp;quot;clave1&amp;quot;: &amp;quot;valor1&amp;quot;,
+    &amp;quot;clave2&amp;quot;: 42,
+    'clave3': [1, 2, 3],
+    42: &amp;quot;clave numérica&amp;quot;
+}
+dict_comprension = {k: v**2 <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(5))}
+
+<span class="comment"># Conjuntos</span>
+conjunto = {1, 2, 3, 4, 5}
+conjunto_vacio = set()
+
+# Operadores bit a bit: &amp;, |, ^, ~, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;
+resultado_and = 5 &amp; 3
+resultado_or = 5 | 3
+resultado_xor = 5 ^ 3
+resultado_not = ~5
+desplazamiento_izq = 5 &amp;lt;&amp;lt; 2
+desplazamiento_der = 20 &amp;gt;&amp;gt; 2
+
+<span class="comment"># Estructura de control: if-elif-else</span>
+<span class="keyword">def</span> control_flujo(valor):
+    <span class="keyword">if</span> valor &amp;gt; 10:
+        print(&amp;quot;Mayor que 10&amp;quot;)
+    <span class="keyword">elif</span> valor &amp;gt; 5:
+        print(&amp;quot;Entre 5 y 10&amp;quot;)
+    <span class="keyword">else</span>:
+        print(&amp;quot;Menor o igual a 5&amp;quot;)
+
+<span class="comment"># Bucles: for y while</span>
+<span class="keyword">def</span> bucles_ejemplo():
+    <span class="comment"># Bucle for</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(10):
+        <span class="keyword">if</span> i == 5:
+            <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
+        <span class="keyword">if</span> i == 8:
+            <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
+        print(i)
+    
+    <span class="comment"># Bucle while</span>
+    contador = 0
+    <span class="keyword">while</span> contador &amp;lt; 5:
+        print(f&amp;quot;Contador: {contador}&amp;quot;)
+        contador += 1
+
+<span class="comment"># Manejo de excepciones: try-except-finally</span>
+<span class="keyword">def</span> manejo_excepciones():
+    <span class="keyword">try</span>:
+        resultado = 10 / 0
+    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
+        print(f&amp;quot;Error: {e}&amp;quot;)
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        print(f&amp;quot;Error general: {e}&amp;quot;)
+    <span class="keyword">else</span>:
+        print(&amp;quot;No hubo errores&amp;quot;)
+    <span class="keyword">finally</span>:
+        print(&amp;quot;Siempre se ejecuta&amp;quot;)
+
+<span class="comment"># Context manager: with</span>
+<span class="keyword">def</span> context_manager_ejemplo():
+    <span class="keyword">with</span> open(&amp;quot;archivo.txt&amp;quot;, &amp;quot;w&amp;quot;) <span class="keyword">as</span> archivo:
+        archivo.write(&amp;quot;Contenido <span class="keyword">del</span> archivo&amp;quot;)
+
+<span class="comment"># Generadores y yield</span>
+<span class="keyword">def</span> generador():
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(5):
+        <span class="keyword">yield</span> i**2
+
+<span class="comment"># Decoradores</span>
+<span class="keyword">def</span> decorador(func):
+    <span class="keyword">def</span> wrapper(*args, **kwargs):
+        print(&amp;quot;Antes de la función&amp;quot;)
+        resultado = func(*args, **kwargs)
+        print(&amp;quot;Después de la función&amp;quot;)
+        <span class="keyword">return</span> resultado
+    <span class="keyword">return</span> wrapper
+
+@decorador
+<span class="keyword">def</span> funcion_decorada():
+    print(&amp;quot;Función decorada&amp;quot;)
+
+<span class="comment"># Variables globales y nonlocal</span>
+variable_global = &amp;quot;<span class="keyword">global</span>&amp;quot;
+
+<span class="keyword">def</span> funcion_externa():
+    variable_local = &amp;quot;local&amp;quot;
+    
+    <span class="keyword">def</span> funcion_interna():
+        <span class="keyword">nonlocal</span> variable_local
+        <span class="keyword">global</span> variable_global
+        variable_local = &amp;quot;modificada&amp;quot;
+        variable_global = &amp;quot;modificada globalmente&amp;quot;
+    
+    funcion_interna()
+    <span class="keyword">return</span> variable_local
+
+<span class="comment"># Expresiones regulares y caracteres especiales</span>
+patron_regex = r&amp;quot;[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}&amp;quot;
+
+<span class="comment"># Función principal</span>
 <span class="keyword">def</span> <span class="keyword">main</span>():
-    <span class="keyword">if</span> True:
-        print(&amp;quot;Hola, mundo!&amp;quot;)
-        <span class="keyword">return</span> 42
+    &amp;quot;&amp;quot;&amp;quot;Función principal que demuestra el uso de todas las clases léxicas&amp;quot;&amp;quot;&amp;quot;
+    print(&amp;quot;=== Demostración de clases léxicas ===&amp;quot;)
+    
+    <span class="comment"># Instanciar clase</span>
+    objeto = MiClase(100)
+    resultado = objeto.metodo_ejemplo(10.5, 5.2)
+    
+    <span class="comment"># Llamar funciones</span>
+    funcion_compleja(1, 2, 3, clave=&amp;quot;valor&amp;quot;, otra_clave=42)
+    control_flujo(15)
+    bucles_ejemplo()
+    manejo_excepciones()
+    
+    <span class="comment"># Usar generador</span>
+    gen = generador()
+    <span class="keyword">for</span> valor <span class="keyword">in</span> gen:
+        print(f&amp;quot;Valor generado: {valor}&amp;quot;)
+    
+    <span class="comment"># Función decorada</span>
+    funcion_decorada()
+    
+    <span class="comment"># Función externa</span>
+    resultado_local = funcion_externa()
+    print(f&amp;quot;Resultado local: {resultado_local}&amp;quot;)
+    
+    <span class="comment"># Operador ternario</span>
+    resultado_ternario = &amp;quot;positivo&amp;quot; <span class="keyword">if</span> resultado &amp;gt; 0 <span class="keyword">else</span> &amp;quot;negativo&amp;quot;
+    print(f&amp;quot;Resultado ternario: {resultado_ternario}&amp;quot;)
+    
+    <span class="comment"># Función lambda</span>
+    resultado_lambda = lambda_func(5, 3)
+    print(f&amp;quot;Resultado <span class="keyword">lambda</span>: {resultado_lambda}&amp;quot;)
+    
+    <span class="comment"># Unpacking</span>
+    a, b, *resto = [1, 2, 3, 4, 5]
+    print(f&amp;quot;a={a}, b={b}, resto={resto}&amp;quot;)
+    
+    <span class="comment"># Walrus operator (Python 3.8+)</span>
+    <span class="keyword">if</span> (n := len(lista)) &amp;gt; 5:
+        print(f&amp;quot;Lista tiene {n} elementos&amp;quot;)
+    
+    <span class="keyword">return</span> 0
 
-var = 42</pre>
+<span class="comment"># Ejecutar si es el archivo principal</span>
+<span class="keyword">if</span> __name__ == &amp;quot;__main__&amp;quot;:
+    <span class="comment"># Comentario de línea final</span>
+    exit_code = <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
+    exit(exit_code)     <span class="comment"># Salida del programa</span></pre>
     </div>
 </body>
 </html>

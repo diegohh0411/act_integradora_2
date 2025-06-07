@@ -489,10 +489,6 @@
     'yield-q0
     (set 'yield-q5)))
 
-
-
-
-
 ;; Concatenar todos los DFA definidos en este archivo
 (define keywords-dfa-list (list 
                             main-dfa def-dfa return-dfa if-dfa 
