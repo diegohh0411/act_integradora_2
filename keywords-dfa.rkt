@@ -3,7 +3,7 @@
 (require "dfa.rkt")
 (require "utils.rkt")
 
-;; Define the DFA for the regex "main".
+;; Define the DFA for the regex "main" (exactly the word "main").
 (define main-dfa
   (dfa
     (set 'main-q0 'main-q1 'main-q2 'main-q3 'main-q4)  ;; States
@@ -56,8 +56,8 @@
     'if-q0
     (set 'if-q2)))
 
-;; Concatenar todos los DFA definidos en este archivo
-(define keywords-dfa
-  (concatenate-dfas (list main-dfa def-dfa return-dfa if-dfa)))
+;; En lugar de intentar unificar los DFAs, simplemente exportamos una lista de ellos
+;; para que puedan ser verificados individualmente
+(define keywords-dfa-list (list main-dfa def-dfa return-dfa if-dfa))
 
-(provide keywords-dfa)
+(provide keywords-dfa-list main-dfa def-dfa return-dfa if-dfa)

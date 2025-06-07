@@ -10,9 +10,19 @@
          text
          '(("&" . "&amp;") ("<" . "&lt;") (">" . "&gt;") ("\"" . "&quot;"))))
 
-;; Pure function to split text into tokens while preserving whitespace
+;; Pure function to split text into tokens while preserving whitespace and separating symbols
 (define (tokenize text)
-  (define (split-helper str acc current-token in-whitespace?)
+  (define (is-symbol-char? c)
+    (or (char=? c #\() (char=? c #\)) (char=? c #\:) (char=? c #\;) 
+        (char=? c #\,) (char=? c #\.) (char=? c #\=) (char=? c #\+) 
+        (char=? c #\-) (char=? c #\*) (char=? c #\/) (char=? c #\<) 
+        (char=? c #\>) (char=? c #\!) (char=? c #\&) (char=? c #\|)
+        (char=? c #\[) (char=? c #\]) (char=? c #\{) (char=? c #\})))
+  
+  (define (is-identifier-char? c)
+    (or (char-alphabetic? c) (char-numeric? c) (char=? c #\_)))
+  
+  (define (split-helper str acc current-token token-type)
     (cond
       [(string=? str "") 
        (if (string=? current-token "")
@@ -22,20 +32,44 @@
        (let ([first-char (string-ref str 0)]
              [rest-str (substring str 1)])
          (cond
+           ;; Handle whitespace
            [(char-whitespace? first-char)
-            (if in-whitespace?
-                (split-helper rest-str acc (string-append current-token (string first-char)) #t)
-                (if (string=? current-token "")
-                    (split-helper rest-str acc (string first-char) #t)
-                    (split-helper rest-str (cons current-token acc) (string first-char) #t)))]
+            (cond
+              [(eq? token-type 'whitespace)
+               (split-helper rest-str acc (string-append current-token (string first-char)) 'whitespace)]
+              [(string=? current-token "")
+               (split-helper rest-str acc (string first-char) 'whitespace)]
+              [else
+               (split-helper rest-str (cons current-token acc) (string first-char) 'whitespace)])]
+           ;; Handle symbols
+           [(is-symbol-char? first-char)
+            (cond
+              [(eq? token-type 'symbol)
+               (split-helper rest-str acc (string-append current-token (string first-char)) 'symbol)]
+              [(string=? current-token "")
+               (split-helper rest-str acc (string first-char) 'symbol)]
+              [else
+               (split-helper rest-str (cons current-token acc) (string first-char) 'symbol)])]
+           ;; Handle identifiers and keywords
+           [(is-identifier-char? first-char)
+            (cond
+              [(eq? token-type 'identifier)
+               (split-helper rest-str acc (string-append current-token (string first-char)) 'identifier)]
+              [(string=? current-token "")
+               (split-helper rest-str acc (string first-char) 'identifier)]
+              [else
+               (split-helper rest-str (cons current-token acc) (string first-char) 'identifier)])]
+           ;; Handle other characters
            [else
-            (if in-whitespace?
-                (if (string=? current-token "")
-                    (split-helper rest-str acc (string first-char) #f)
-                    (split-helper rest-str (cons current-token acc) (string first-char) #f))
-                (split-helper rest-str acc (string-append current-token (string first-char)) #f))]))]))
+            (cond
+              [(eq? token-type 'other)
+               (split-helper rest-str acc (string-append current-token (string first-char)) 'other)]
+              [(string=? current-token "")
+               (split-helper rest-str acc (string first-char) 'other)]
+              [else
+               (split-helper rest-str (cons current-token acc) (string first-char) 'other)])]))]))
   
-  (split-helper text '() "" #f))
+  (split-helper text '() "" 'none))
 
 ;; Pure function to check if a token matches any DFA and return the CSS class
 (define (find-matching-class token dfa-class-pairs)
@@ -43,13 +77,20 @@
     (cond
       [(null? pairs) #f]
       [else
-       (let ([dfa (car (car pairs))]
+       (let ([dfa-list (car (car pairs))]
              [css-class (cdr (car pairs))])
-         (if (dfa-accepts? dfa token)
+         (if (any-dfa-accepts? dfa-list token)
              css-class
              (check-dfas (cdr pairs))))]))
   
   (check-dfas dfa-class-pairs))
+
+;; Helper function to check if any DFA in a list accepts a token
+(define (any-dfa-accepts? dfa-list token)
+  (cond
+    [(null? dfa-list) #f]
+    [(dfa-accepts? (car dfa-list) token) #t]
+    [else (any-dfa-accepts? (cdr dfa-list) token)]))
 
 ;; Pure function to highlight tokens
 (define (highlight-tokens tokens dfa-class-pairs)
@@ -109,7 +150,7 @@
 
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
-  (list (cons keywords-dfa "keyword")))
+  (list (cons keywords-dfa-list "keyword")))
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)
