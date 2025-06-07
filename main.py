@@ -1,4 +1,5 @@
 # hola este es un comentario
+import math
 
 def main():
     if True:
