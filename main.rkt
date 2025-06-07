@@ -3,6 +3,7 @@
 (require "dfa.rkt"
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
+         "numbers-dfa.rkt"
          )
 
 ;; Pure function to escape HTML special characters
@@ -180,9 +181,9 @@
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
   (list (cons keywords-dfa-list "keyword")
-        (cons comments-dfa-list "comment"))
-        
-        )
+        (cons comments-dfa-list "comment")
+        (cons numbers-dfa-list "number")
+        ))
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)
