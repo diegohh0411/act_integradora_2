@@ -77,7 +77,7 @@
       (set 'await-q0) (hash #\a (set 'await-q1))
       (set 'await-q1) (hash #\w (set 'await-q2))
       (set 'await-q2) (hash #\a (set 'await-q3))
-      (set 'await-q3) (hash #\i (set 'await-q4))+
+      (set 'await-q3) (hash #\i (set 'await-q4))
       (set 'await-q4) (hash #\t (set 'await-q4))
       (set 'await-q5) (ann (hash) (HashTable Char (Setof Symbol))))
     'await-q0
@@ -170,7 +170,10 @@
 
 
 ;; Concatenar todos los DFA definidos en este archivo
-(define keywords-dfa
-  (concatenate-dfas (list main-dfa def-dfa return-dfa if-dfa)))
+(define keywords-dfa-list (list 
+                            main-dfa def-dfa return-dfa if-dfa 
+                            False-dfa await-dfa else-dfa import-dfa 
+                            pass-dfa None-dfa break-dfa except-dfa
+                            ))
 
-(provide keywords-dfa-list main-dfa def-dfa return-dfa if-dfa)
+(provide keywords-dfa-list)
