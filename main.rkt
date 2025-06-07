@@ -3,14 +3,8 @@
 (require "dfa.rkt"
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
+         "strings-dfa.rkt"
          )
-
-;; Pure function to escape HTML special characters
-(define (escape-html text)
-  (foldr (lambda (replacement acc)
-           (string-replace acc (car replacement) (cdr replacement)))
-         text
-         '(("&" . "&amp;") ("<" . "&lt;") (">" . "&gt;") ("\"" . "&quot;"))))
 
 ;; Pure function to split text into tokens while preserving whitespace and separating symbols
 (define (tokenize text)
@@ -173,15 +167,14 @@
 
 ;; Pure function to process Python code to HTML
 (define (python-to-html python-code dfas-with-classes)
-  (let* ([escaped-code (escape-html python-code)]
-         [highlighted-code (highlight-with-dfas escaped-code dfas-with-classes)])
+  (let* ([highlighted-code (highlight-with-dfas python-code dfas-with-classes)])
     (create-html-template highlighted-code)))
 
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
   (list (cons keywords-dfa-list "keyword")
         (cons comments-dfa-list "comment"))
-        
+        (cons strings-dfa-list "string")
         )
 
 ;; IO function to read file safely
