@@ -136,49 +136,146 @@
 
 (define binary-dfa
   (dfa
-    ;; States
     (set 'bin-q0 'bin-q1 'bin-q2 'bin-qd 'bin-qu)
     
-    ;; Alphabet
     (set #\0 #\1 #\b #\B #\_)
     
-    ;; Transition table
     (hash
-      ;; Start → 0
       (set 'bin-q0)
       (hash #\0 (set 'bin-q1))
 
-      ;; 0 → b or B
       (set 'bin-q1)
       (hash #\b (set 'bin-q2)
             #\B (set 'bin-q2))
 
-      ;; 0b → must be followed by a binary digit
       (set 'bin-q2)
       (hash
         #\0 (set 'bin-qd)
         #\1 (set 'bin-qd))
 
-      ;; In binary digits → loop or go to underscore
       (set 'bin-qd)
       (hash
         #\0 (set 'bin-qd)
         #\1 (set 'bin-qd)
         #\_ (set 'bin-qu))
 
-      ;; After underscore → must get a digit
       (set 'bin-qu)
       (hash
         #\0 (set 'bin-qd)
         #\1 (set 'bin-qd)))
     
-    ;; Start state
     'bin-q0
 
-    ;; Accepting state(s)
     (set 'bin-qd)))
 
+(define float-dfa
+  (dfa
+    (set 'f-q0 'f-q1 'f-q2 'f-q3 'f-q4 'f-q5 'f-q6 'f-q7 'f-q8) 
+    (set #\. #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9 #\e #\E #\+ #\-) 
+    (hash
+      (set 'f-q0) (hash
+                   
+                    #\0 (set 'f-q1)  #\1 (set 'f-q1) #\2 (set 'f-q1) #\3 (set 'f-q1) #\4 (set 'f-q1)
+                    #\5 (set 'f-q1)  #\6 (set 'f-q1) #\7 (set 'f-q1) #\8 (set 'f-q1) #\9 (set 'f-q1)
+                   
+                    #\. (set 'f-q2))
+      (set 'f-q1) (hash
+                    #\0 (set 'f-q1) #\1 (set 'f-q1) #\2 (set 'f-q1) #\3 (set 'f-q1) #\4 (set 'f-q1)
+                    #\5 (set 'f-q1) #\6 (set 'f-q1) #\7 (set 'f-q1) #\8 (set 'f-q1) #\9 (set 'f-q1)
+                    #\. (set 'f-q3)
+                    #\e (set 'f-q5)
+                    #\E (set 'f-q5))
+      (set 'f-q2) (hash
+                    #\0 (set 'f-q4) #\1 (set 'f-q4) #\2 (set 'f-q4) #\3 (set 'f-q4) #\4 (set 'f-q4)
+                    #\5 (set 'f-q4) #\6 (set 'f-q4) #\7 (set 'f-q4) #\8 (set 'f-q4) #\9 (set 'f-q4))
+      (set 'f-q3) (hash
+                    #\0 (set 'f-q3) #\1 (set 'f-q3) #\2 (set 'f-q3) #\3 (set 'f-q3) #\4 (set 'f-q3)
+                    #\5 (set 'f-q3) #\6 (set 'f-q3) #\7 (set 'f-q3) #\8 (set 'f-q3) #\9 (set 'f-q3)
+                    #\e (set 'f-q5)
+                    #\E (set 'f-q5))
+      (set 'f-q4) (hash
+                    #\0 (set 'f-q4) #\1 (set 'f-q4) #\2 (set 'f-q4) #\3 (set 'f-q4) #\4 (set 'f-q4)
+                    #\5 (set 'f-q4) #\6 (set 'f-q4) #\7 (set 'f-q4) #\8 (set 'f-q4) #\9 (set 'f-q4)
+                    #\e (set 'f-q5)
+                    #\E (set 'f-q5))
+      (set 'f-q5) (hash
+                    #\+ (set 'f-q6)
+                    #\- (set 'f-q6)
+                    #\0 (set 'f-q7) #\1 (set 'f-q7) #\2 (set 'f-q7) #\3 (set 'f-q7) #\4 (set 'f-q7)
+                    #\5 (set 'f-q7) #\6 (set 'f-q7) #\7 (set 'f-q7) #\8 (set 'f-q7) #\9 (set 'f-q7))
 
-(define numbers-dfa-list(list int-dfa hex-dfa octal-dfa binary-dfa))
+      (set 'f-q6) (hash
+                    #\0 (set 'f-q7) #\1 (set 'f-q7) #\2 (set 'f-q7) #\3 (set 'f-q7) #\4 (set 'f-q7)
+                    #\5 (set 'f-q7) #\6 (set 'f-q7) #\7 (set 'f-q7) #\8 (set 'f-q7) #\9 (set 'f-q7))
+
+      (set 'f-q7) (hash
+                    #\0 (set 'f-q7) #\1 (set 'f-q7) #\2 (set 'f-q7) #\3 (set 'f-q7) #\4 (set 'f-q7)
+                    #\5 (set 'f-q7) #\6 (set 'f-q7) #\7 (set 'f-q7) #\8 (set 'f-q7) #\9 (set 'f-q7))
+      (set 'f-q8) (ann (hash) (HashTable Char (Setof Symbol)))
+      )
+    'f-q0 
+    (set 'f-q3 'f-q4 'f-q7))) 
+
+(define complex-dfa
+  (dfa
+    (set 'c-q0 'c-q1 'c-q2 'c-q3 'c-q4 'c-q5 'c-q6 'c-q7 'c-q8 'c-qj)
+    (set #\. #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9 #\e #\E #\+ #\- #\j #\J) 
+    (hash
+
+      (set 'c-q0) (hash
+                    #\0 (set 'c-q1)  #\1 (set 'c-q1) #\2 (set 'c-q1) #\3 (set 'c-q1) #\4 (set 'c-q1)
+                    #\5 (set 'c-q1)  #\6 (set 'c-q1) #\7 (set 'c-q1) #\8 (set 'c-q1) #\9 (set 'c-q1)
+
+                    #\. (set 'c-q2))
+      (set 'c-q1) (hash
+                    #\0 (set 'c-q1) #\1 (set 'c-q1) #\2 (set 'c-q1) #\3 (set 'c-q1) #\4 (set 'c-q1)
+                    #\5 (set 'c-q1) #\6 (set 'c-q1) #\7 (set 'c-q1) #\8 (set 'c-q1) #\9 (set 'c-q1)
+                    #\. (set 'c-q3)
+                    #\e (set 'c-q5)
+                    #\E (set 'c-q5)
+                    #\j (set 'c-qj)
+                    #\J (set 'c-qj))
+
+      (set 'c-q2) (hash
+                    #\0 (set 'c-q4) #\1 (set 'c-q4) #\2 (set 'c-q4) #\3 (set 'c-q4) #\4 (set 'c-q4)
+                    #\5 (set 'c-q4) #\6 (set 'c-q4) #\7 (set 'c-q4) #\8 (set 'c-q4) #\9 (set 'c-q4))
+
+      (set 'c-q3) (hash
+                    #\0 (set 'c-q3) #\1 (set 'c-q3) #\2 (set 'c-q3) #\3 (set 'c-q3) #\4 (set 'c-q3)
+                    #\5 (set 'c-q3) #\6 (set 'c-q3) #\7 (set 'c-q3) #\8 (set 'c-q3) #\9 (set 'c-q3)
+                    #\e (set 'c-q5)
+                    #\E (set 'c-q5)
+                    #\j (set 'c-qj)
+                    #\J (set 'c-qj))
+      (set 'c-q4) (hash
+                    #\0 (set 'c-q4) #\1 (set 'c-q4) #\2 (set 'c-q4) #\3 (set 'c-q4) #\4 (set 'c-q4)
+                    #\5 (set 'c-q4) #\6 (set 'c-q4) #\7 (set 'c-q4) #\8 (set 'c-q4) #\9 (set 'c-q4)
+                    #\e (set 'c-q5)
+                    #\E (set 'c-q5)
+                    #\j (set 'c-qj)
+                    #\J (set 'c-qj))
+      (set 'c-q5) (hash
+                    #\+ (set 'c-q6)
+                    #\- (set 'c-q6)
+                    #\0 (set 'c-q7) #\1 (set 'c-q7) #\2 (set 'c-q7) #\3 (set 'c-q7) #\4 (set 'c-q7)
+                    #\5 (set 'c-q7) #\6 (set 'c-q7) #\7 (set 'c-q7) #\8 (set 'c-q7) #\9 (set 'c-q7))
+
+
+      (set 'c-q6) (hash
+                    #\0 (set 'c-q7) #\1 (set 'c-q7) #\2 (set 'c-q7) #\3 (set 'c-q7) #\4 (set 'c-q7)
+                    #\5 (set 'c-q7) #\6 (set 'c-q7) #\7 (set 'c-q7) #\8 (set 'c-q7) #\9 (set 'c-q7))
+      (set 'c-q7) (hash
+                    #\0 (set 'c-q7) #\1 (set 'c-q7) #\2 (set 'c-q7) #\3 (set 'c-q7) #\4 (set 'c-q7)
+                    #\5 (set 'c-q7) #\6 (set 'c-q7) #\7 (set 'c-q7) #\8 (set 'c-q7) #\9 (set 'c-q7)
+                    #\j (set 'c-qj)
+                    #\J (set 'c-qj))
+
+      (set 'c-qj) (ann (hash) (HashTable Char (Setof Symbol)))
+      )
+    'c-q0
+    (set 'c-qj)))
+
+
+(define numbers-dfa-list(list int-dfa hex-dfa octal-dfa binary-dfa float-dfa complex-dfa))
 
 (provide numbers-dfa-list)

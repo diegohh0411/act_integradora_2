@@ -4,6 +4,7 @@
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
          "numbers-dfa.rkt"
+         "operators-dfa.rkt"
          )
 
 ;; Pure function to escape HTML special characters
@@ -183,6 +184,7 @@
   (list (cons keywords-dfa-list "keyword")
         (cons comments-dfa-list "comment")
         (cons numbers-dfa-list "number")
+        (cons operators-dfa-list "operator")
         ))
 
 ;; IO function to read file safely

@@ -39,42 +39,42 @@ que demuestra las docstrings
     &amp;quot;&amp;quot;&amp;quot;Docstring de la clase&amp;quot;&amp;quot;&amp;quot;
     
     <span class="comment"># Variable de clase</span>
-    variable_clase = &amp;quot;valor_clase&amp;quot;
+    variable_clase <span class="operator">=</span> &amp;quot;valor_clase&amp;quot;
     
-    <span class="keyword">def</span> __init__(self, parametro: int = <span class="number">0</span>):
+    <span class="keyword">def</span> __init__(self, parametro: int <span class="operator">=</span> <span class="number">0</span>):
         <span class="comment"># Operador de asignación</span>
-        self.atributo = parametro
-        self._atributo_privado = <span class="keyword">None</span>
-        self.__atributo_muy_privado = &amp;quot;secreto&amp;quot;
+        self.atributo <span class="operator">=</span> parametro
+        self._atributo_privado <span class="operator">=</span> <span class="keyword">None</span>
+        self.__atributo_muy_privado <span class="operator">=</span> &amp;quot;secreto&amp;quot;
     
     <span class="keyword">def</span> metodo_ejemplo(self, x: float, y: float) -&amp;gt; float:
         &amp;quot;&amp;quot;&amp;quot;Método que demuestra operadores aritméticos&amp;quot;&amp;quot;&amp;quot;
         <span class="comment"># Operadores aritméticos: +, -, *, /, //, %, **</span>
-        suma = x + y
-        resta = x - y
-        multiplicacion = x * y
-        division = x / y
-        division_entera = x // y
-        modulo = x % y
-        potencia = x ** y
+        suma <span class="operator">=</span> x <span class="operator">+</span> y
+        resta <span class="operator">=</span> x <span class="operator">-</span> y
+        multiplicacion <span class="operator">=</span> x <span class="operator">*</span> y
+        division <span class="operator">=</span> x <span class="operator">/</span> y
+        division_entera <span class="operator">=</span> x <span class="operator">//</span> y
+        modulo <span class="operator">=</span> x <span class="operator">%</span> y
+        potencia <span class="operator">=</span> x <span class="operator">**</span> y
         
         <span class="comment"># Operadores de asignación compuesta: +=, -=, *=, /=, //=, %=, **=</span>
-        suma += <span class="number">10</span>
-        resta -= <span class="number">5</span>
-        multiplicacion *= <span class="number">2</span>
-        division /= <span class="number">3</span>
+        suma <span class="operator">+=</span> <span class="number">10</span>
+        resta <span class="operator">-=</span> <span class="number">5</span>
+        multiplicacion <span class="operator">*=</span> <span class="number">2</span>
+        division <span class="operator">/=</span> <span class="number">3</span>
         
         <span class="keyword">return</span> suma
 
 <span class="comment"># Función con diferentes tipos de parámetros</span>
-<span class="keyword">def</span> funcion_compleja(*args, **kwargs):
+<span class="keyword">def</span> funcion_compleja(*args, <span class="operator">**</span>kwargs):
     &amp;quot;&amp;quot;&amp;quot;Función con argumentos variables&amp;quot;&amp;quot;&amp;quot;
     <span class="comment"># Operadores de comparación: ==, !=, &amp;lt;, &amp;gt;, &amp;lt;=, &amp;gt;=, is, is not, in, not in</span>
     <span class="keyword">if</span> len(args) &amp;gt; <span class="number">0</span> <span class="keyword">and</span> args[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:
         print(f&amp;quot;Primer argumento: {args[<span class="number">0</span>]}&amp;quot;)
     
     <span class="comment"># Operadores lógicos: and, or, not</span>
-    <span class="keyword">if</span> args <span class="keyword">and</span> kwargs <span class="keyword">and</span> <span class="keyword">not</span> (len(args) == <span class="number">0</span> <span class="keyword">or</span> len(kwargs) == <span class="number">0</span>):
+    <span class="keyword">if</span> args <span class="keyword">and</span> kwargs <span class="keyword">and</span> <span class="keyword">not</span> (len(args) <span class="operator">==</span> <span class="number">0</span> <span class="keyword">or</span> len(kwargs) <span class="operator">==</span> <span class="number">0</span>):
         print(&amp;quot;Tenemos argumentos&amp;quot;)
     
     <span class="comment"># Operadores de membresía: in, not in</span>
@@ -86,61 +86,61 @@ que demuestra las docstrings
         print(&amp;quot;Es verdadero&amp;quot;)
 
 <span class="comment"># Función lambda</span>
-lambda_func = <span class="keyword">lambda</span> x, y: x + y <span class="keyword">if</span> x &amp;gt; <span class="number">0</span> <span class="keyword">else</span> y
+lambda_func <span class="operator">=</span> <span class="keyword">lambda</span> x, y: x <span class="operator">+</span> y <span class="keyword">if</span> x &amp;gt; <span class="number">0</span> <span class="keyword">else</span> y
 
 <span class="comment"># Diferentes tipos de datos</span>
 <span class="comment"># Enteros (decimales, hexadecimales, octales, binarios)</span>
-entero_decimal = <span class="number">42</span>
-entero_hex = <span class="number">0xFF</span>
-entero_octal = <span class="number">0o777</span>
-entero_binario = <span class="number">0b1010</span>
+entero_decimal <span class="operator">=</span> <span class="number">42</span>
+entero_hex <span class="operator">=</span> <span class="number">0xFF</span>
+entero_octal <span class="operator">=</span> <span class="number">0o777</span>
+entero_binario <span class="operator">=</span> <span class="number">0b1010</span>
 
 <span class="comment"># Flotantes</span>
-flotante = <span class="number">3</span>.<span class="number">14159</span>
-flotante_cientifico = <span class="number">1</span>.5e-<span class="number">10</span>
-flotante_negativo = -<span class="number">2</span>.<span class="number">718</span>
+flotante <span class="operator">=</span> <span class="number">3</span>.<span class="number">14159</span>
+flotante_cientifico <span class="operator">=</span> <span class="number">1</span>.5e<span class="operator">-</span><span class="number">10</span>
+flotante_negativo <span class="operator">=</span> <span class="operator">-</span><span class="number">2</span>.<span class="number">718</span>
 
 <span class="comment"># Números complejos</span>
-complejo = <span class="number">3</span> + 4j
+complejo <span class="operator">=</span> <span class="number">3</span> <span class="operator">+</span> <span class="number">4j</span>
 
 <span class="comment"># Strings con diferentes tipos de comillas</span>
-string_simple = 'cadena simple'
-string_doble = &amp;quot;cadena doble&amp;quot;
-string_triple = '''cadena
+string_simple <span class="operator">=</span> 'cadena simple'
+string_doble <span class="operator">=</span> &amp;quot;cadena doble&amp;quot;
+string_triple <span class="operator">=</span> '''cadena
 de múltiples
 líneas'''
-string_raw = r&amp;quot;cadena raw con \n caracteres especiales&amp;quot;
-string_formatted = f&amp;quot;String formateado: {entero_decimal}&amp;quot;
-string_unicode = &amp;quot;cadena con unicode: ñáéíóú&amp;quot;
+string_raw <span class="operator">=</span> r&amp;quot;cadena raw con \n caracteres especiales&amp;quot;
+string_formatted <span class="operator">=</span> f&amp;quot;String formateado: {entero_decimal}&amp;quot;
+string_unicode <span class="operator">=</span> &amp;quot;cadena con unicode: ñáéíóú&amp;quot;
 
 <span class="comment"># Listas con diferentes elementos</span>
-lista = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, &amp;quot;texto&amp;quot;, <span class="keyword">True</span>, <span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">2</span>]]
-lista_comprension = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]
+lista <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, &amp;quot;texto&amp;quot;, <span class="keyword">True</span>, <span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">2</span>]]
+lista_comprension <span class="operator">=</span> [x<span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span>]
 
 <span class="comment"># Tuplas</span>
-tupla = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
-tupla_un_elemento = (<span class="number">42</span>,)
+tupla <span class="operator">=</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
+tupla_un_elemento <span class="operator">=</span> (<span class="number">42</span>,)
 
 <span class="comment"># Diccionarios</span>
-diccionario = {
+diccionario <span class="operator">=</span> {
     &amp;quot;clave1&amp;quot;: &amp;quot;valor1&amp;quot;,
     &amp;quot;clave2&amp;quot;: <span class="number">42</span>,
     'clave3': [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],
     <span class="number">42</span>: &amp;quot;clave numérica&amp;quot;
 }
-dict_comprension = {k: v**<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(<span class="number">5</span>))}
+dict_comprension <span class="operator">=</span> {k: v<span class="operator">**</span><span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(<span class="number">5</span>))}
 
 <span class="comment"># Conjuntos</span>
-conjunto = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
-conjunto_vacio = set()
+conjunto <span class="operator">=</span> {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
+conjunto_vacio <span class="operator">=</span> set()
 
 # Operadores bit a bit: &amp;, |, ^, ~, &amp;lt;&amp;lt;, &amp;gt;&amp;gt;
-resultado_and = <span class="number">5</span> &amp; <span class="number">3</span>
-resultado_or = <span class="number">5</span> | <span class="number">3</span>
-resultado_xor = <span class="number">5</span> ^ <span class="number">3</span>
-resultado_not = ~<span class="number">5</span>
-desplazamiento_izq = <span class="number">5</span> &amp;lt;&amp;lt; <span class="number">2</span>
-desplazamiento_der = <span class="number">20</span> &amp;gt;&amp;gt; <span class="number">2</span>
+resultado_and <span class="operator">=</span> <span class="number">5</span> &amp; <span class="number">3</span>
+resultado_or <span class="operator">=</span> <span class="number">5</span> | <span class="number">3</span>
+resultado_xor <span class="operator">=</span> <span class="number">5</span> ^ <span class="number">3</span>
+resultado_not <span class="operator">=</span> ~<span class="number">5</span>
+desplazamiento_izq <span class="operator">=</span> <span class="number">5</span> &amp;lt;&amp;lt; <span class="number">2</span>
+desplazamiento_der <span class="operator">=</span> <span class="number">20</span> &amp;gt;&amp;gt; <span class="number">2</span>
 
 <span class="comment"># Estructura de control: if-elif-else</span>
 <span class="keyword">def</span> control_flujo(valor):
@@ -155,22 +155,22 @@ desplazamiento_der = <span class="number">20</span> &amp;gt;&amp;gt; <span class
 <span class="keyword">def</span> bucles_ejemplo():
     <span class="comment"># Bucle for</span>
     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):
-        <span class="keyword">if</span> i == <span class="number">5</span>:
+        <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">5</span>:
             <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
-        <span class="keyword">if</span> i == <span class="number">8</span>:
+        <span class="keyword">if</span> i <span class="operator">==</span> <span class="number">8</span>:
             <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
         print(i)
     
     <span class="comment"># Bucle while</span>
-    contador = <span class="number">0</span>
+    contador <span class="operator">=</span> <span class="number">0</span>
     <span class="keyword">while</span> contador &amp;lt; <span class="number">5</span>:
         print(f&amp;quot;Contador: {contador}&amp;quot;)
-        contador += <span class="number">1</span>
+        contador <span class="operator">+=</span> <span class="number">1</span>
 
 <span class="comment"># Manejo de excepciones: try-except-finally</span>
 <span class="keyword">def</span> manejo_excepciones():
     <span class="keyword">try</span>:
-        resultado = <span class="number">10</span> / <span class="number">0</span>
+        resultado <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">0</span>
     <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
         print(f&amp;quot;Error: {e}&amp;quot;)
     <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
@@ -188,13 +188,13 @@ desplazamiento_der = <span class="number">20</span> &amp;gt;&amp;gt; <span class
 <span class="comment"># Generadores y yield</span>
 <span class="keyword">def</span> generador():
     <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
-        <span class="keyword">yield</span> i**<span class="number">2</span>
+        <span class="keyword">yield</span> i<span class="operator">**</span><span class="number">2</span>
 
 <span class="comment"># Decoradores</span>
 <span class="keyword">def</span> decorador(func):
-    <span class="keyword">def</span> wrapper(*args, **kwargs):
+    <span class="keyword">def</span> wrapper(*args, <span class="operator">**</span>kwargs):
         print(&amp;quot;Antes de la función&amp;quot;)
-        resultado = func(*args, **kwargs)
+        resultado <span class="operator">=</span> func(*args, <span class="operator">**</span>kwargs)
         print(&amp;quot;Después de la función&amp;quot;)
         <span class="keyword">return</span> resultado
     <span class="keyword">return</span> wrapper
@@ -204,22 +204,22 @@ desplazamiento_der = <span class="number">20</span> &amp;gt;&amp;gt; <span class
     print(&amp;quot;Función decorada&amp;quot;)
 
 <span class="comment"># Variables globales y nonlocal</span>
-variable_global = &amp;quot;<span class="keyword">global</span>&amp;quot;
+variable_global <span class="operator">=</span> &amp;quot;<span class="keyword">global</span>&amp;quot;
 
 <span class="keyword">def</span> funcion_externa():
-    variable_local = &amp;quot;local&amp;quot;
+    variable_local <span class="operator">=</span> &amp;quot;local&amp;quot;
     
     <span class="keyword">def</span> funcion_interna():
         <span class="keyword">nonlocal</span> variable_local
         <span class="keyword">global</span> variable_global
-        variable_local = &amp;quot;modificada&amp;quot;
-        variable_global = &amp;quot;modificada globalmente&amp;quot;
+        variable_local <span class="operator">=</span> &amp;quot;modificada&amp;quot;
+        variable_global <span class="operator">=</span> &amp;quot;modificada globalmente&amp;quot;
     
     funcion_interna()
     <span class="keyword">return</span> variable_local
 
 <span class="comment"># Expresiones regulares y caracteres especiales</span>
-patron_regex = r&amp;quot;[a-zA-Z0-<span class="number">9</span>]+@[a-zA-Z0-<span class="number">9</span>]+\.[a-zA-Z]{<span class="number">2</span>,}&amp;quot;
+patron_regex <span class="operator">=</span> r&amp;quot;[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+@[a<span class="operator">-</span>zA<span class="operator">-</span>Z0<span class="operator">-</span><span class="number">9</span>]+\.[a<span class="operator">-</span>zA<span class="operator">-</span>Z]{<span class="number">2</span>,}&amp;quot;
 
 <span class="comment"># Función principal</span>
 <span class="keyword">def</span> <span class="keyword">main</span>():
@@ -227,17 +227,17 @@ patron_regex = r&amp;quot;[a-zA-Z0-<span class="number">9</span>]+@[a-zA-Z0-<spa
     print(&amp;quot;=== Demostración de clases léxicas ===&amp;quot;)
     
     <span class="comment"># Instanciar clase</span>
-    objeto = MiClase(<span class="number">100</span>)
-    resultado = objeto.metodo_ejemplo(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
+    objeto <span class="operator">=</span> MiClase(<span class="number">100</span>)
+    resultado <span class="operator">=</span> objeto.metodo_ejemplo(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
     
     <span class="comment"># Llamar funciones</span>
-    funcion_compleja(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, clave=&amp;quot;valor&amp;quot;, otra_clave=<span class="number">42</span>)
+    funcion_compleja(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, clave=&amp;quot;valor&amp;quot;, otra_clave<span class="operator">=</span><span class="number">42</span>)
     control_flujo(<span class="number">15</span>)
     bucles_ejemplo()
     manejo_excepciones()
     
     <span class="comment"># Usar generador</span>
-    gen = generador()
+    gen <span class="operator">=</span> generador()
     <span class="keyword">for</span> valor <span class="keyword">in</span> gen:
         print(f&amp;quot;Valor generado: {valor}&amp;quot;)
     
@@ -245,19 +245,19 @@ patron_regex = r&amp;quot;[a-zA-Z0-<span class="number">9</span>]+@[a-zA-Z0-<spa
     funcion_decorada()
     
     <span class="comment"># Función externa</span>
-    resultado_local = funcion_externa()
+    resultado_local <span class="operator">=</span> funcion_externa()
     print(f&amp;quot;Resultado local: {resultado_local}&amp;quot;)
     
     <span class="comment"># Operador ternario</span>
-    resultado_ternario = &amp;quot;positivo&amp;quot; <span class="keyword">if</span> resultado &amp;gt; <span class="number">0</span> <span class="keyword">else</span> &amp;quot;negativo&amp;quot;
+    resultado_ternario <span class="operator">=</span> &amp;quot;positivo&amp;quot; <span class="keyword">if</span> resultado &amp;gt; <span class="number">0</span> <span class="keyword">else</span> &amp;quot;negativo&amp;quot;
     print(f&amp;quot;Resultado ternario: {resultado_ternario}&amp;quot;)
     
     <span class="comment"># Función lambda</span>
-    resultado_lambda = lambda_func(<span class="number">5</span>, <span class="number">3</span>)
+    resultado_lambda <span class="operator">=</span> lambda_func(<span class="number">5</span>, <span class="number">3</span>)
     print(f&amp;quot;Resultado <span class="keyword">lambda</span>: {resultado_lambda}&amp;quot;)
     
     <span class="comment"># Unpacking</span>
-    a, b, *resto = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+    a, b, <span class="operator">*</span>resto <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
     print(f&amp;quot;a={a}, b={b}, resto={resto}&amp;quot;)
     
     <span class="comment"># Walrus operator (Python 3.8+)</span>
@@ -267,9 +267,9 @@ patron_regex = r&amp;quot;[a-zA-Z0-<span class="number">9</span>]+@[a-zA-Z0-<spa
     <span class="keyword">return</span> <span class="number">0</span>
 
 <span class="comment"># Ejecutar si es el archivo principal</span>
-<span class="keyword">if</span> __name__ == &amp;quot;__main__&amp;quot;:
+<span class="keyword">if</span> __name__ <span class="operator">==</span> &amp;quot;__main__&amp;quot;:
     <span class="comment"># Comentario de línea final</span>
-    exit_code = <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
+    exit_code <span class="operator">=</span> <span class="keyword">main</span>()  <span class="comment"># Llamada a función principal</span>
     exit(exit_code)     <span class="comment"># Salida del programa</span></pre>
     </div>
 </body>
