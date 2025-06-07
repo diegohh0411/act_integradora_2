@@ -41,7 +41,7 @@ que demuestra las docstrings
     <span class="comment"># Variable de clase</span>
     variable_clase = "valor_clase"
     
-    <span class="keyword">def</span> __init__(self, parametro: int = 0):
+    <span class="keyword">def</span> __init__(self, parametro: int = <span class="number">0</span>):
         <span class="comment"># Operador de asignación</span>
         self.atributo = parametro
         self._atributo_privado = <span class="keyword">None</span>
@@ -59,10 +59,10 @@ que demuestra las docstrings
         potencia = x ** y
         
         <span class="comment"># Operadores de asignación compuesta: +=, -=, *=, /=, //=, %=, **=</span>
-        suma += 10
-        resta -= 5
-        multiplicacion *= 2
-        division /= 3
+        suma += <span class="number">10</span>
+        resta -= <span class="number">5</span>
+        multiplicacion *= <span class="number">2</span>
+        division /= <span class="number">3</span>
         
         <span class="keyword">return</span> suma
 
@@ -90,18 +90,18 @@ lambda_func = <span class="keyword">lambda</span> x, y: x + y <span class="keywo
 
 <span class="comment"># Diferentes tipos de datos</span>
 <span class="comment"># Enteros (decimales, hexadecimales, octales, binarios)</span>
-entero_decimal = 42
-entero_hex = 0xFF
-entero_octal = 0o777
-entero_binario = 0b1010
+entero_decimal = <span class="number">42</span>
+entero_hex = <span class="number">0xFF</span>
+entero_octal = <span class="number">0o777</span>
+entero_binario = <span class="number">0b1010</span>
 
 <span class="comment"># Flotantes</span>
-flotante = 3.14159
-flotante_cientifico = 1.5e-10
-flotante_negativo = -2.718
+flotante = <span class="number">3</span>.<span class="number">14159</span>
+flotante_cientifico = <span class="number">1</span>.5e-<span class="number">10</span>
+flotante_negativo = -<span class="number">2</span>.<span class="number">718</span>
 
 <span class="comment"># Números complejos</span>
-complejo = 3 + 4j
+complejo = <span class="number">3</span> + 4j
 
 <span class="comment"># Strings con diferentes tipos de comillas</span>
 string_simple = 'cadena simple'
@@ -118,8 +118,8 @@ lista = [1, 2, 3, "texto", <span class="keyword">True</span>, <span class="keywo
 lista_comprension = [x**2 <span class="keyword">for</span> x <span class="keyword">in</span> range(10) <span class="keyword">if</span> x % 2 == 0]
 
 <span class="comment"># Tuplas</span>
-tupla = (1, 2, 3)
-tupla_un_elemento = (42,)
+tupla = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)
+tupla_un_elemento = (<span class="number">42</span>,)
 
 <span class="comment"># Diccionarios</span>
 diccionario = {
@@ -128,10 +128,10 @@ diccionario = {
     'clave3': [1, 2, 3],
     42: "clave numérica"
 }
-dict_comprension = {k: v**2 <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(5))}
+dict_comprension = {k: v**<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> enumerate(range(<span class="number">5</span>))}
 
 <span class="comment"># Conjuntos</span>
-conjunto = {1, 2, 3, 4, 5}
+conjunto = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>}
 conjunto_vacio = set()
 
 # Operadores bit a bit: &, |, ^, ~, <<, >>
@@ -154,10 +154,10 @@ desplazamiento_der = 20 >> 2
 <span class="comment"># Bucles: for y while</span>
 <span class="keyword">def</span> bucles_ejemplo():
     <span class="comment"># Bucle for</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(10):
-        <span class="keyword">if</span> i == 5:
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):
+        <span class="keyword">if</span> i == <span class="number">5</span>:
             <span class="keyword">continue</span>  <span class="comment"># Salta a la siguiente iteración</span>
-        <span class="keyword">if</span> i == 8:
+        <span class="keyword">if</span> i == <span class="number">8</span>:
             <span class="keyword">break</span>     <span class="comment"># Sale del bucle</span>
         print(i)
     
@@ -170,7 +170,7 @@ desplazamiento_der = 20 >> 2
 <span class="comment"># Manejo de excepciones: try-except-finally</span>
 <span class="keyword">def</span> manejo_excepciones():
     <span class="keyword">try</span>:
-        resultado = 10 / 0
+        resultado = <span class="number">10</span> / <span class="number">0</span>
     <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:
         print(f"Error: {e}")
     <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
@@ -187,8 +187,8 @@ desplazamiento_der = 20 >> 2
 
 <span class="comment"># Generadores y yield</span>
 <span class="keyword">def</span> generador():
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(5):
-        <span class="keyword">yield</span> i**2
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
+        <span class="keyword">yield</span> i**<span class="number">2</span>
 
 <span class="comment"># Decoradores</span>
 <span class="keyword">def</span> decorador(func):
@@ -227,8 +227,8 @@ patron_regex = r"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
     print("=== Demostración de clases léxicas ===")
     
     <span class="comment"># Instanciar clase</span>
-    objeto = MiClase(100)
-    resultado = objeto.metodo_ejemplo(10.5, 5.2)
+    objeto = MiClase(<span class="number">100</span>)
+    resultado = objeto.metodo_ejemplo(<span class="number">10</span>.<span class="number">5</span>, <span class="number">5</span>.<span class="number">2</span>)
     
     <span class="comment"># Llamar funciones</span>
     funcion_compleja(1, 2, 3, clave="valor", otra_clave=42)
@@ -264,7 +264,7 @@ patron_regex = r"[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
     <span class="keyword">if</span> (n := len(lista)) > 5:
         print(f"Lista tiene {n} elementos")
     
-    <span class="keyword">return</span> 0
+    <span class="keyword">return</span> <span class="number">0</span>
 
 <span class="comment"># Ejecutar si es el archivo principal</span>
 <span class="keyword">if</span> __name__ == "__main__":

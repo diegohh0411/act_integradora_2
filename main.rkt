@@ -3,6 +3,7 @@
 (require "dfa.rkt"
          "keywords-dfa.rkt"
          "comments-dfa.rkt"
+         "numbers-dfa.rkt"
          "strings-dfa.rkt"
          )
 
@@ -173,9 +174,10 @@
 ;; Pure function to get DFA-class pairs
 (define (get-dfa-class-pairs)
   (list (cons keywords-dfa-list "keyword")
-        (cons comments-dfa-list "comment"))
+        (cons comments-dfa-list "comment")
+        (cons numbers-dfa-list "number")
         (cons strings-dfa-list "string")
-        )
+        ))
 
 ;; IO function to read file safely
 (define (safe-read-file filepath)
